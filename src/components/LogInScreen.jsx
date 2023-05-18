@@ -54,45 +54,7 @@ function LogInScreen(){
                     onChange={UserPasswordChange}
                     style={inputStyle}
                 />
-
-                {/* <Link to={"/Games"} 
-                    style={
-                        {
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            textDecoration: "none", 
-                            color: 'white',
-                            fontSize: 18,
-                            backgroundColor: "#575757",
-                            borderRadius: 70,
-                            boxSizing: "border-box",
-                            width: 440,
-                            height: 80,
-                            marginLeft: "auto",
-                            marginRight: "auto",
-                        }
-                    }>
-                    로그인
-                </Link>
-
-                <Link to={"/SingIn"} 
-                    style={
-                        {
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            textDecoration: "none", 
-                            color: 'white',
-                            fontSize: 18,
-                            borderRadius: 70,
-                            boxSizing: "border-box",
-                            marginLeft: "auto",
-                            marginRight: "auto",
-                        }
-                    }>
-                    회원가입
-                </Link> */}
+            
 
                 <button className="loginBtn"  onClick={goLogIn}>로그인</button>
 
