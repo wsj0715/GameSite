@@ -1,0 +1,51 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #32384C;
+}
+
+.signin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.signin .site{
+    color: #ffffff;
+    text-align: center;
+    font-size: 24px;
+}
+
+.signin form{
+    display: flex;
+    flex-direction: column;
+}
+
+.signin form input{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #D9D9D9;
+    border: none;
+    color: #686868;
+    font-size: 18px;
+}
+.signin form input:focus{
+    outline: none;
+}
+
+.signin .signinBtn{
+    color: #ffffff;
+    font-size: 18px;
+    background-color: #575757;
+    width: 440px;
+    height: 80px;
+    border-radius: 70px;
+    border: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8px;
+    color: #ffffff;
+}
