@@ -38,7 +38,7 @@ function LogInScreen(){
 
     return(
         <div className="login">
-            <p className="site">게임 사이트 이름</p>
+            <p className="site">추억의 플래시 5락실</p>
             <form onSubmit={FormSubmit}>
                 <input
                     type="text"
