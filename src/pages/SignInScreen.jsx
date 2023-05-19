@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
+
 import '../CSS/SignIn.css'
 
 function SignInScreen(){
@@ -35,7 +36,8 @@ function SignInScreen(){
         height: 80,
         borderRadius: 70,
         margin: 10,
-        padding: 10
+        padding: 10,
+        textAlign: 'center'
     }
 
     return(

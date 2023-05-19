@@ -5,10 +5,10 @@ import {
   Route,
 } from "react-router-dom";
 
-import LogInScreen from "./components/LogInScreen";
-import SignInScreen from "./components/SignInScreen";
-import MainScreen from "./components/MainScreen";
-import GameScreen from "./components/GameScreen";
+import LogInScreen from "./pages/LogInScreen";
+import SignInScreen from "./pages/SignInScreen";
+import MainScreen from "./pages/MainScreen";
+import GameScreen from "./pages/GameScreen";
 
 function App() {
   return (

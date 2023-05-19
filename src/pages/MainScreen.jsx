@@ -1,11 +1,13 @@
 import React from "react";
 
+import Header from "../Components/header";
+
 function MainScreen(){
     return(
         <div>
-            <h1>
-                메인 화면
-            </h1>
+            <Header/>
+            <h6>제작 게임</h6>
+            <hr/>
         </div>
     )
 }

@@ -33,7 +33,8 @@ function LogInScreen(){
         height: 80,
         borderRadius: 70,
         margin: 10,
-        padding: 10
+        padding: 10,
+        textAlign: 'center'
     }
 
     return(
@@ -58,11 +59,11 @@ function LogInScreen(){
 
                 <button className="loginBtn"  onClick={goLogIn}>로그인</button>
 
-                <div>
-                    <button>아이디 찾기</button>       
+                <div className="subBtn">
+                    {/* <button>아이디 찾기</button>       
                     <p>|</p>     
                     <button>비밀번호 찾기</button>     
-                    <p>|</p>            
+                    <p>|</p>             */}
                     <button onClick={goSignIn}>회원가입</button>                    
                 </div>
             </form>

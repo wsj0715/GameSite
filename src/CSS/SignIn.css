@@ -1,16 +1,10 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    background-color: #32384C;
-}
-
 .signin{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #32384C;
 }
 
 .signin .site{
@@ -48,4 +42,9 @@
     margin-right: auto;
     margin-top: 8px;
     color: #ffffff;
+    cursor: pointer;
+}
+
+.subBtn button{
+    cursor: pointer;
 }
