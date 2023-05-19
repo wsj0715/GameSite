@@ -3,6 +3,7 @@ import { IconButton } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { FaBars } from "react-icons/fa";
+import { AiFillAliwangwang } from "react-icons/ai";
 
 import '../CSS/Header.css'
 import '../JS/toggle.js'
@@ -16,6 +17,13 @@ const Header = () => {
                     <h1>
                         추억의 플래시 5락실
                     </h1>
+                    <AiFillAliwangwang 
+                        style={{
+                            color: 'white',
+                            marginLeft: 10,
+                            fontSize: 25
+                        }}
+                    />
                 </div>                
 
                 <ul className="menu">
@@ -33,14 +41,21 @@ const Header = () => {
                 </div>
 
                 <div className="user">
-                    <IconButton style={{color: 'white'}}>
-                        <AccountCircleOutlinedIcon />
+                    <IconButton>
+                        <AccountCircleOutlinedIcon 
+                            style={{
+                                fontSize: 30,
+                                color: '#ffffff'
+                            }}
+                        />
                     </IconButton>
                 </div>
 
                 <a href="#" className="toggleBtn">
                     <FaBars 
-                        style={{color: 'white'}}
+                        style={{
+                            color: '#ffffff'
+                        }}
                     />
                 </a>
             </header>
