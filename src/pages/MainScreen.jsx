@@ -20,14 +20,6 @@ function MainScreen(){
                     <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
                     <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
                     <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
-                    <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
-                    <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
-                    <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
-                    <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
-                    <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
-                    <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
-                    <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
-                    <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
                 </ul>
             </div>
 
@@ -37,7 +29,7 @@ function MainScreen(){
 
             <hr/>
 
-            <div className="games">
+            <div className="games2">
                 <ul>
                     <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
                     <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
