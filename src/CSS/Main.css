@@ -1,0 +1,43 @@
+.title h6{
+    color: #D9D9D9;
+    font-size: 20px;
+    margin: 15px 0 15px 50px;
+}
+
+hr{
+    border-color: #D9D9D9;
+    margin: 0 50px;
+}
+
+.games{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.games ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+} 
+
+.games ul li{
+    float: left;
+    display: block; 
+    background-color: white;
+    margin: 20px 2.5% 50px 0; 
+    border-radius: 4px; 
+}
+
+.games ul li a{
+    text-decoration: none;
+}
+
+.title2 h6{
+    color: #D9D9D9;
+    font-size: 20px;
+    margin: 15px 0 15px 50px;
+}
