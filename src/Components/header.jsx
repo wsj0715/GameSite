@@ -12,12 +12,14 @@ const Header = () => {
     const [menuActive, setMenuActive] = useState(false);
     const [searchActive, setSearchActive] = useState(false);
     const [iconActive, setIconActive] = useState(false);
+    const [registerActive, setRegisterActive] = useState(false);
     const [profileActive, setProfileActive] = useState(false);    
 
     const handleToggle = () => {
         setMenuActive(!menuActive);
         setSearchActive(!searchActive);
         setIconActive(!iconActive);
+        setRegisterActive(!registerActive);
     };
 
     const handleProfile = () => {
@@ -75,8 +77,14 @@ const Header = () => {
                     </IconButton>
                 </div>
 
+                <ul className={`register ${registerActive ? 'active' : ''}`}>
+                    <li><a onClick={goLogIn}>로그인</a></li>
+                    <span>|</span>
+                    <li><a onClick={goSignIn}>회원가입</a></li>
+                </ul>
+
                 <ul className={`profile ${profileActive ? 'active' : ''}`}>
-                    <li><a >마이페이지</a></li>
+                    <li><a>마이페이지</a></li>
                     <li><a onClick={goLogIn}>로그인</a></li>
                     <li><a onClick={goSignIn}>회원가입</a></li>
                 </ul>

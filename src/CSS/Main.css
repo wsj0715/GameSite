@@ -9,6 +9,10 @@ hr{
     margin: 0 50px;
 }
 
+a{
+    text-decoration: none;
+}
+
 .games{
     display: flex;
     flex-wrap: wrap;
@@ -25,13 +29,12 @@ hr{
 } 
 
 .games ul li{
-    background-color: white;
     margin: 20px 35px 50px; 
-    border-radius: 4px; 
 }
 
-a{
-    text-decoration: none;
+.games img {
+    max-width: 100%;
+    height: auto;
 }
 
 .title2 h6{
@@ -56,7 +59,19 @@ a{
 } 
 
 .games2 ul li{
-    background-color: white;
     margin: 20px 35px 50px; 
-    border-radius: 4px; 
+}
+
+.games2 img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 800px) {
+    .games ul li,
+    .games2 ul li {
+        flex-basis: calc(50% - 35px);
+        max-width: calc(50% - 35px);
+        margin: 20px 17.5px 50px;
+    }
 }

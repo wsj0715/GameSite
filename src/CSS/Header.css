@@ -87,6 +87,12 @@ body{
     margin: 0 20px;
 }
 
+.header .register{
+    display: none;
+    list-style: none;
+    color: #ffffff;
+}
+
 .header .profile{
     list-style: none;
     color: #ffffff;
@@ -152,7 +158,32 @@ body{
 
     .header .user{
         display: none;
-        margin: 0 auto 15px;
+        margin: 0 auto;
+    }
+
+    .header .register{
+        display: none;
+        margin: 15px auto 20px;
+        padding: 0;
+    }
+
+    .header .register li{
+        display: flex;
+        margin: 2px 15px 0;
+    }
+
+    .header .register li:first-child{
+        margin-left: 30px;
+    }
+
+    
+    .header .register li:hover{
+        color: #7CC7FE;
+    }
+    
+    .header .register li a{
+        cursor: pointer;
+        text-decoration: none;
     }
 
     .header .toggleBtn{
@@ -161,7 +192,8 @@ body{
 
     .menu.active,
     .search-container.active,
-    .user.active{
+    .user.active,
+    .register.active{
         display: flex;
     }
 
