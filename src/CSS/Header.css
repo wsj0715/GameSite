@@ -28,7 +28,7 @@ body{
     display: none;
 }
 
-.header ul{
+.header .menu{
     list-style: none;
     display: flex;
     color: #ffffff;
@@ -36,17 +36,17 @@ body{
     white-space: nowrap;
 }
 
-.header ul li {
+.header .menu li {
     margin-left: 1rem; 
     margin-right: 20px;
     padding: 8px 12px;
 }
 
-.header ul li:hover{
+.header .menu li:hover{
     color: #7CC7FE;
 }
 
-.header ul li a{
+.header .menu li a{
     text-decoration: none; 
     color: inherit; 
     cursor: pointer; 
@@ -87,6 +87,36 @@ body{
     margin: 0 20px;
 }
 
+.header .profile{
+    list-style: none;
+    color: #ffffff;
+    display: none;
+    background-color: #515668;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 10px;
+    margin: 0;
+}
+
+.header .profile li{
+    margin-bottom: 10px;
+}
+
+.header .profile li:hover{
+    color: #7CC7FE;
+}
+
+.header .profile li a{
+    color: inherit;
+    cursor: pointer; 
+}
+
+.header .profile.active{
+    display: flex;
+    flex-direction: column;
+}
+
 .header .toggleBtn{
     display: none;
     position: absolute;
@@ -103,14 +133,14 @@ body{
         align-items: flex-start;
     }
 
-    .header ul{
+    .header .menu{
         display: none;
         flex-direction: column;
         margin: 15px auto;
         padding: 0;
     }
 
-    .header ul li{
+    .header .menu li{
         text-align: center;
     }
 
@@ -129,9 +159,13 @@ body{
         display: block;
     }
 
-    ul.active,
+    .menu.active,
     .search-container.active,
     .user.active{
         display: flex;
+    }
+
+    .header .profile.active{
+        display: none;
     }
 }

@@ -14,10 +14,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LogInScreen/>}/>
-        <Route path="SignInScreen" element={<SignInScreen/>}/>
-        <Route path="MainScreen" element={<MainScreen/>}/>
+        <Route path="/" element={<MainScreen/>}/>
         <Route path="LoginScreen" element={<LogInScreen/>}/>
+        <Route path="MainScreen" element={<MainScreen/>}/>
+        <Route path="SignInScreen" element={<SignInScreen/>}/>
       </Routes>
     </BrowserRouter>
   );
