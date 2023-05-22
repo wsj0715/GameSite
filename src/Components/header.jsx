@@ -46,15 +46,15 @@ const Header = () => {
                 <div className="title">
                     <h1 onClick={goHome}>
                         추억의 플래시 5락실
+                        <AiFillAliwangwang 
+                            style={{
+                                color: 'white',
+                                marginLeft: 10,
+                                fontSize: 25,
+                                marginTop: 5
+                            }}
+                        />
                     </h1>
-                    <AiFillAliwangwang 
-                        style={{
-                            color: 'white',
-                            marginLeft: 10,
-                            fontSize: 25,
-                            marginTop: 5
-                        }}
-                    />
                 </div>                
 
                 <ul className={`menu ${menuActive ? 'active' : ''}`}>
