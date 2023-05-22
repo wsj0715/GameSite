@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-
+import { AiFillAliwangwang } from "react-icons/ai";
 
 import '../CSS/SignIn.css'
 
@@ -43,7 +43,17 @@ function SignInScreen(){
     return(
         <div className="signin">
 
-            <p className="site">추억의 플래시 5락실</p>
+            <div className="site">
+                <h1>추억의 플래시 5락실</h1>
+                <AiFillAliwangwang 
+                    style={{
+                        color: '#ffffff',
+                        fontSize: 25,
+                        marginTop: 20,
+                        marginLeft: 10
+                    }}
+                />
+            </div>
 
             <form onSubmit={handleSubmit}> 
                 <input

@@ -15,9 +15,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainScreen/>}/>
+        <Route path="SignInScreen" element={<SignInScreen/>}/>
         <Route path="LoginScreen" element={<LogInScreen/>}/>
         <Route path="MainScreen" element={<MainScreen/>}/>
-        <Route path="SignInScreen" element={<SignInScreen/>}/>
+        <Route path="GameScreen" element={<GameScreen/>}/>
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,37 @@
+.gamescreen {
+    display: flex;
+    flex-direction: column;
+}
+
+hr {
+    margin: 0 50px;
+}
+
+.game {
+    background-color: #D9D9D9;
+    height: 470px;
+    width: 470px;
+    border-radius: 20px;
+    margin: 50px auto 0;
+}
+
+.sub{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub p{
+    color: #ffffff;
+    font-size: 25px;
+    margin: 10px 250px 0 0;
+}
+
+.sub .icon{
+    font-size: 30px;
+    color: #ffffff;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+

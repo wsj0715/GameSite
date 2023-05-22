@@ -9,10 +9,6 @@ hr{
     margin: 0 50px;
 }
 
-a{
-    text-decoration: none;
-}
-
 .games{
     display: flex;
     flex-wrap: wrap;
@@ -65,6 +61,12 @@ a{
 .games2 img {
     max-width: 100%;
     height: auto;
+}
+
+.games ul li a,
+.games2 ul li a{
+    text-decoration: none;
+    cursor: pointer;
 }
 
 @media (max-width: 800px) {

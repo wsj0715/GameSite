@@ -22,6 +22,7 @@ body{
 .header .title h1{
     color: #ffffff;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .mui{
@@ -126,7 +127,7 @@ body{
 .header .toggleBtn{
     display: none;
     position: absolute;
-    right: 32px;
+    right: 20px;
     font-size: 24px;
     margin-top: 13px;
 }
@@ -188,6 +189,9 @@ body{
 
     .header .toggleBtn{
         display: block;
+        border: none;
+        background-color: #32384C;
+        cursor: pointer;
     }
 
     .menu.active,

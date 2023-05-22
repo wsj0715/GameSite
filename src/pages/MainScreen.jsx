@@ -1,9 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import Header from "../Components/header";
 import '../CSS/Main.css'
 
 function MainScreen(){
+    const movePage = useNavigate();
+
+    function goGame(){
+        movePage('/GameScreen')
+    }
+
     return(
         <div>
             <Header/>
@@ -16,7 +23,7 @@ function MainScreen(){
 
             <div className="games">
                 <ul>
-                    <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
+                    <li><a onClick={goGame}><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
                     <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
                     <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>
                     <li><a href="#"><img src="https://via.placeholder.com/270x270" alt="undefined"/></a></li>

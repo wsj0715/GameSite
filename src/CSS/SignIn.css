@@ -8,9 +8,14 @@
 }
 
 .signin .site{
-    color: #ffffff;
-    text-align: center;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.signin .site h1{
     font-size: 24px;
+    color: #ffffff;
 }
 
 .signin form{
@@ -38,9 +43,7 @@
     height: 80px;
     border-radius: 70px;
     border: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 8px;
+    margin: 8px auto 0;
     color: #ffffff;
     cursor: pointer;
 }

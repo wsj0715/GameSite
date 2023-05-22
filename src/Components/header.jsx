@@ -36,18 +36,23 @@ const Header = () => {
         movePage('/SignInScreen')
     }
 
+    function goHome(){
+        movePage('/MainScreen')
+    }
+
     return (
         <div>
             <header className="header">
                 <div className="title">
-                    <h1>
+                    <h1 onClick={goHome}>
                         추억의 플래시 5락실
                     </h1>
                     <AiFillAliwangwang 
                         style={{
                             color: 'white',
                             marginLeft: 10,
-                            fontSize: 25
+                            fontSize: 25,
+                            marginTop: 5
                         }}
                     />
                 </div>                
@@ -71,7 +76,8 @@ const Header = () => {
                         <AccountCircleOutlinedIcon 
                             style={{
                                 fontSize: 30,
-                                color: '#ffffff'
+                                color: '#ffffff',
+                                
                             }}
                         />
                     </IconButton>
@@ -89,13 +95,13 @@ const Header = () => {
                     <li><a onClick={goSignIn}>회원가입</a></li>
                 </ul>
 
-                <a href="#" className="toggleBtn" onClick={handleToggle}>
+                <button className="toggleBtn" onClick={handleToggle}>
                     <FaBars 
                         style={{
                             color: '#ffffff'
                         }}
                     />
-                </a>
+                </button>
             </header>
         </div>
     );
