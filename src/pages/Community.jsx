@@ -41,6 +41,7 @@ function CommunityScreen(){
                         disableUnderline: true,
                         style: {
                           border: '1px solid #d9d9d9',
+                          color: '#d9d9d9'
                         },
                     }}
                     InputLabelProps={{
@@ -62,6 +63,7 @@ function CommunityScreen(){
                         disableUnderline: true,
                         style: {
                           border: '1px solid #d9d9d9',
+                          color: '#d9d9d9'
                         },
                     }}
                     InputLabelProps={{
