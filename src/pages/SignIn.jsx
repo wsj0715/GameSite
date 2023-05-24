@@ -70,13 +70,13 @@ function SignInScreen(){
                   onChange={(e) => setPassword(e.target.value)}
                   style={inputStyle}
                 />
-                <input
+                {/* <input
                   type="password"
                   placeholder="비밀번호 확인"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   style={inputStyle}
-                />
+                /> */}
             </form>
 
             <button type="submit" className="signinBtn" onClick={goLogIn}>회원가입</button>

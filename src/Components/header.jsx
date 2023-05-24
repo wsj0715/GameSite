@@ -40,6 +40,14 @@ const Header = () => {
         movePage('/MainScreen')
     }
 
+    function goMyPage(){
+        movePage('/MyPageScreen')
+    } 
+
+    function goCommunity(){
+        movePage('/CommunityScreen')
+    }
+
     return (
         <div>
             <header className="header">
@@ -59,7 +67,7 @@ const Header = () => {
 
                 <ul className={`menu ${menuActive ? 'active' : ''}`}>
                     <li><a>카테고리</a></li>
-                    <li><a>커뮤니티</a></li>
+                    <li><a onClick={goCommunity}>커뮤니티</a></li>
                     <li><a>즐겨찾는 게임</a></li>   
                 </ul>
 
@@ -90,7 +98,7 @@ const Header = () => {
                 </ul>
 
                 <ul className={`profile ${profileActive ? 'active' : ''}`}>
-                    <li><a>마이페이지</a></li>
+                    <li><a onClick={goMyPage}>마이페이지</a></li>
                     <li><a onClick={goLogIn}>로그인</a></li>
                     <li><a onClick={goSignIn}>회원가입</a></li>
                 </ul>
