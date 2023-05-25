@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import "../CSS/Game.css";
 import Header from "../Components/header";
 import RufflePlayer from "../Components/RufflePlayer";
+import { S3_URL } from "../api/apiClient";
+
 function GameScreen() {
     const { id } = useParams();
     const [like, setLike] = useState(false);
@@ -27,7 +29,7 @@ function GameScreen() {
             <hr />
 
             <div className="game">
-                <RufflePlayer swfUrl={`/resource/swf/${id}.swf`} />
+                <RufflePlayer swfUrl={`${S3_URL}${id}.swf`} />
             </div>
 
             <div className="sub">
