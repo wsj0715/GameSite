@@ -1,6 +1,5 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import LogInScreen from "./pages/LogIn";
 import SignInScreen from "./pages/SignIn";
 import MainScreen from "./pages/Main";
