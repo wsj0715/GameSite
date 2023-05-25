@@ -6,8 +6,8 @@ import Header from "../Components/header";
 import "../CSS/Main.css";
 
 const madeGameList = [
-    { id: "85", name: "플래피 버드" },
-    { id: "2", name: "언데드 서바이버" },
+    { id: "1", name: "플래피 버드" },
+    //{ id: "2", name: "언데드 서바이버" },
     { id: "3", name: "테트리스" },
 ];
 function MainScreen() {
