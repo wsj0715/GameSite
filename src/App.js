@@ -8,6 +8,7 @@ import MyPageScreen from "./pages/MyPage";
 import CommunityScreen from "./pages/Community";
 import Tetris from "./pages/Tetris";
 import Error from "./pages/Error";
+import MadeGame from "./pages/MadeGame";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
     {
         path: "/GameScreen/:id",
         element: <GameScreen />,
+    },
+    {
+        path: "/MadeGameScreen/:id",
+        element: <MadeGame />,
     },
     {
         path: "/MainScreen",
