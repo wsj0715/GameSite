@@ -6,6 +6,7 @@ import MainScreen from "./pages/Main";
 import GameScreen from "./pages/Game";
 import MyPageScreen from "./pages/MyPage";
 import CommunityScreen from "./pages/Community";
+import Tetris from "./pages/Tetris";
 import Error from "./pages/Error";
 
 const router = createBrowserRouter([
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
     {
         path: "/CommunityScreen",
         element: <CommunityScreen />,
+    },
+    {
+        path: "/Tetris",
+        element: <Tetris />,
     },
 ]);
 

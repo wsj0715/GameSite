@@ -16,7 +16,8 @@ export default function ContentBox({ id }) {
     };
 
     const handleClick = () => {
-        navigate(`/GameScreen/${id}`);
+        if (id === "3") navigate(`/Tetris`);
+        else navigate(`/GameScreen/${id}`);
     };
 
     return (
