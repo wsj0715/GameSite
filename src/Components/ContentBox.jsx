@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { S3_URL } from "../api/apiClient";
 
 //게임 로고를 그려줄 컴포넌트
 export default function ContentBox({ id }) {
@@ -22,7 +23,7 @@ export default function ContentBox({ id }) {
 
     return (
         <span onClick={handleClick} style={style}>
-            <img src={`resource/img/${id}.jpg`} alt="content" style={{ width: "100%", height: "100%" }} />
+            <img src={`${S3_URL}${id}.jpg`} alt="content" style={{ width: "100%", height: "100%" }} />
         </span>
     );
 }

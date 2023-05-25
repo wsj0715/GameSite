@@ -4,6 +4,19 @@ import React, { useEffect, useRef } from "react";
 const RufflePlayer = ({ swfUrl }) => {
     const containerRef = useRef(null);
 
+    const loadScript = (url, callback) => {
+        // Check if the script is already loaded
+        if (document.querySelector(`script[src="${url}"]`)) {
+            callback();
+            return;
+        }
+        const script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = url;
+        script.onload = callback;
+        document.body.appendChild(script);
+    };
+
     useEffect(() => {
         const loadRufflePlayer = async () => {
             const { RufflePlayer } = window;
@@ -27,19 +40,6 @@ const RufflePlayer = ({ swfUrl }) => {
 
         loadScript("https://unpkg.com/@ruffle-rs/ruffle", loadRufflePlayer);
     }, [swfUrl]);
-
-    const loadScript = (url, callback) => {
-        // Check if the script is already loaded
-        if (document.querySelector(`script[src="${url}"]`)) {
-            callback();
-            return;
-        }
-        const script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = url;
-        script.onload = callback;
-        document.body.appendChild(script);
-    };
 
     return <div id="container" ref={containerRef} />;
 };
