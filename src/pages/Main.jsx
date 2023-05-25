@@ -5,9 +5,9 @@ import Header from "../Components/header";
 import "../CSS/Main.css";
 import { getAllGames } from "../api/apiGame";
 const madeGameList = [
-    { id: "1", name: "플래피 버드" },
-    //{ id: "2", name: "언데드 서바이버" },
-    { id: "3", name: "테트리스" },
+    { id: 1, name: "플래피 버드" },
+    //{ id: 2, name: "언데드 서바이버" },
+    { id: 3, name: "테트리스" },
 ];
 const loadScript = (url) => {
     // Check if the script is already loaded
