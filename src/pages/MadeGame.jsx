@@ -16,27 +16,25 @@ function MadeGame() {
     const toggleStar = () => {
         setStar(!star);
     };
-    
+
     const { unityProvider } = useUnityContext({
         loaderUrl: `/build${id}/build.loader.js`,
         dataUrl: `/build${id}/build.data`,
         frameworkUrl: `/build${id}/build.framework.js`,
         codeUrl: `/build${id}/build.wasm`,
     });
-   
+
     return (
         <div className="gamescreen">
             <Header />
-            
+
             <div className="title">
                 <h6>(게임 이름)</h6>
             </div>
 
             <hr />
 
-            <div className="game">
-              {unityProvider&&<Unity unityProvider={unityProvider} style={{width:"750px", height:"500px"}}/>}
-            </div>
+            <div className="madegame">{unityProvider && <Unity unityProvider={unityProvider} style={{ width: "750px", height: "500px" }} />}</div>
 
             <div className="sub">
                 <p>(게임 이름)</p>
