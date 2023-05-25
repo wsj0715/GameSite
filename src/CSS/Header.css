@@ -10,6 +10,8 @@ body{
     align-items: center;
     background-color: #32384C;
     width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    z-index: 999;
 }
 
 .header .title{
@@ -141,6 +143,7 @@ body{
     .header{
         flex-direction: column;
         align-items: flex-start;
+        z-index: 999;
     }
 
     .header .menu{

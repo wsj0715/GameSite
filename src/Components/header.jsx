@@ -82,6 +82,7 @@ const Header = () => {
                 <div className={`user ${iconActive ? 'active' : ''}`}>
                     <IconButton onClick={handleProfile}>
                         <AccountCircleOutlinedIcon 
+                            onClick={goMyPage}
                             style={{
                                 fontSize: 30,
                                 color: '#ffffff',

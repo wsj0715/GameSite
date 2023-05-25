@@ -36,7 +36,6 @@ function SignInScreen(){
         height: 80,
         borderRadius: 70,
         margin: 10,
-        padding: 10,
         textAlign: 'center'
     }
 
