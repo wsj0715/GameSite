@@ -5,7 +5,7 @@ export const BACKEND_URL = "http://54.180.13.188:8080";
 //때문에 api를 url에 붙여 _redirects 파일에서 설정한대로 리아다이렉트 되도록 한다.
 const host = window.location.hostname === "localhost" ? BACKEND_URL : "api";
 
-export const apiClient = axios.create({
+export const apiClient = axios.create({ 
     baseURL: host,
 });
 
