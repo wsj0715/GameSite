@@ -5,4 +5,4 @@ export const Login = async () => {
         method: "post",
         url: `/auth/login`
     })
-}
+} 

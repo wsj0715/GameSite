@@ -30,6 +30,10 @@ const router = createBrowserRouter([
     element: <GameScreen />
   },
   {
+    path: "/GameScreen/:id",
+    element: <GameScreen />
+  },
+  {
     path: "/MainScreen",
     element: <MainScreen />
   },

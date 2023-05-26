@@ -5,4 +5,4 @@ export const Mypage = async () => {
         method: "post",
         url: `/mypage`
     })
-} 
+}  

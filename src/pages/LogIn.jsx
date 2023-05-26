@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillAliwangwang } from "react-icons/ai";
@@ -9,7 +10,7 @@ function LogInScreen(){
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
-    
+     
 
     const UsernameChange = (event) => {
         setUserName(event.target.value);

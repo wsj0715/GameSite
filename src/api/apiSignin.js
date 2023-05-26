@@ -5,4 +5,4 @@ export const Signin = async () => {
         method: "post",
         url: `/auth/signup`
     })
-} 
+}  

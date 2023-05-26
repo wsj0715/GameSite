@@ -1,17 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { AiOutlineStar, AiFillStar, AiOutlineLike, AiFillLike } from "react-icons/ai";
 import { useParams } from "react-router-dom";
-import "../CSS/Game.css";
+import "../CSS/MadeGame.css";
 import Header from "../Components/header";
-import RufflePlayer from "../Components/RufflePlayer";
-import { S3_URL } from "../api/ApiClient";
-import { getAGames } from "../api/apiGame";
-function GameScreen() {
+import { Unity, useUnityContext } from "react-unity-webgl";
+
+function MadeGame() {
     const { id } = useParams();
     const [like, setLike] = useState(false);
     const [star, setStar] = useState(false);
-    const [gameName, setGameName] = useState("");
-    const [gameImg, setGameImg] = useState("");
+
+    function getGameName(id) {
+        let gameName;
+        switch (id) {
+            case "1":
+                gameName = "플래피 버드";
+                break;
+            case "2":
+                gameName = "언데드 서바이버";
+                break;
+            case "3":
+                gameName = "테트리스";
+                break;
+            default:
+                gameName = "게임?";
+        }
+        return gameName;
+    }
+    const gameName = getGameName(id);
 
     const toggleLike = () => {
         setLike(!like);
@@ -21,12 +37,12 @@ function GameScreen() {
         setStar(!star);
     };
 
-    useEffect(() => {
-        getAGames(id).then((res) => {
-            setGameName(res.data.name);
-            setGameImg(res.data.imageUrl);
-        });
-    }, [id]);
+    const { unityProvider } = useUnityContext({
+        loaderUrl: `/build${id}/build.loader.js`,
+        dataUrl: `/build${id}/build.data`,
+        frameworkUrl: `/build${id}/build.framework.js`,
+        codeUrl: `/build${id}/build.wasm`,
+    });
 
     return (
         <div className="gamescreen">
@@ -38,9 +54,8 @@ function GameScreen() {
 
             <hr />
 
-            <div className="game">
-                <RufflePlayer swfUrl={`${S3_URL}${id}.swf`} />
-            </div>
+            <div className="madegame">{unityProvider && <Unity unityProvider={unityProvider} style={{ width: "750px", height: "500px" }} />}</div>
+
             <div className="sub">
                 <p>{gameName}</p>
 
@@ -54,9 +69,8 @@ function GameScreen() {
                     )}
                 </div>
             </div>
-            <img src={gameImg} alt="game" className="gameImg" />
         </div>
     );
 }
 
-export default GameScreen;
+export default MadeGame;
