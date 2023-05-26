@@ -8,6 +8,9 @@ const host = window.location.hostname === "localhost" ? BACKEND_URL : "api";
 
 export const apiClient = axios.create({ 
     baseURL: host,
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+    },
 }); 
 
 //https://velog.io/@jiheon788/Netlify%EC%97%90%EC%84%9C-HTTPS-HTTP-%ED%86%B5%EC%8B%A0-%ED%95%B4%EA%B2%B0-%EA%B3%BC%EC%A0%95
