@@ -15,7 +15,13 @@ hr {
     margin: 50px auto 0;
     padding: 15px;
 }
-
+.gameImg {
+    height: 400px;
+    width: 500px;
+    border-radius: 20px;
+    margin: 50px auto 0;
+    padding: 15px;
+}
 .sub {
     display: flex;
     justify-content: center;
