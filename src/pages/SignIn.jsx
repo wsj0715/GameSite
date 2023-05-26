@@ -1,13 +1,22 @@
-import React, {useState} from "react";
+/* eslint-disable no-unused-vars */
+import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillAliwangwang } from "react-icons/ai";
 
+import { Signin } from "../api/apiSignin";
 import '../CSS/SignIn.css'
 
 function SignInScreen(){
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
+
+    const SigninHandle = () => {
+        if(!username || !password || !email) {
+            window.alert("모든 필드를 입력하세요.");
+            return;
+        }
+    }
     
     const handleSubmit = (e) => {
         e.preventDefault(); // 폼(submit) 기본 동작 방지
@@ -57,7 +66,7 @@ function SignInScreen(){
                   style={inputStyle}
                 />
                 <input
-                  type="text"
+                  type="email"
                   placeholder="이메일"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
