@@ -2,14 +2,17 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillAliwangwang } from "react-icons/ai";
 
+import { Login } from "../api/apiLogin";
 import '../CSS/LogIn.css'
 
 function LogInScreen(){
-    const [userID, setUserID] = useState('');
+    const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
-    const UserIDChange = (event) => {
-        setUserID(event.target.value);
+    
+
+    const UsernameChange = (event) => {
+        setUserName(event.target.value);
     };
     const UserPasswordChange = (event) => {
         setPassword(event.target.value);
@@ -55,8 +58,8 @@ function LogInScreen(){
                 <input
                     type="text"
                     placeholder="아이디"
-                    value={userID}
-                    onChange={UserIDChange}
+                    value={username}
+                    onChange={UsernameChange}
                     style={inputStyle}
                 />
                 <input
