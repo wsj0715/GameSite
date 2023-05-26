@@ -11,6 +11,8 @@ function GameScreen() {
     const [like, setLike] = useState(false);
     const [star, setStar] = useState(false);
     const [gameName, setGameName] = useState("");
+    const [gameImg, setGameImg] = useState("");
+
     const toggleLike = () => {
         setLike(!like);
     };
@@ -22,6 +24,7 @@ function GameScreen() {
     useEffect(() => {
         getAGames(id).then((res) => {
             setGameName(res.data.name);
+            setGameImg(res.data.imageUrl);
         });
     }, [id]);
 
@@ -38,7 +41,6 @@ function GameScreen() {
             <div className="game">
                 <RufflePlayer swfUrl={`${S3_URL}${id}.swf`} />
             </div>
-
             <div className="sub">
                 <p>{gameName}</p>
 
@@ -52,6 +54,7 @@ function GameScreen() {
                     )}
                 </div>
             </div>
+            <img src={gameImg} alt="game" className="gameImg" />
         </div>
     );
 }
