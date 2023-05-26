@@ -30,7 +30,7 @@ function LogInScreen(){
             return;
         }
 
-        API.post('/auth/login',{
+        API.post(`/auth/login`,{
             username: postReq.username,
             password: postReq.password
         })
