@@ -5,44 +5,32 @@ import { AiFillAliwangwang } from "react-icons/ai";
 
 import { Login } from "../api/apiLogin";
 import '../CSS/LogIn.css'
-import axios from "axios";
-import { post } from "request";
-import { response } from "express";
 
 function LogInScreen(){
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
-    const postReq = {
-        username: username,
-        password: password
-    };
-
-    const BACKEND_URL = "http://54.180.13.188:8080";
-    const host = window.location.hostname === "localhost" ? BACKEND_URL : "api";
-    const API = axios.create({
-        baseURL: host
-    });
-
     const handleLogin = () => {
-        if(!username || !password){
-            window.alert('모든 필드를 입력하세요.');
-            return;
+        if (!username || !password) {
+          window.alert("모든 필드를 입력하세요.");
+          return;
         }
-
-        API.post(`/auth/login`,{
-            username: postReq.username,
-            password: postReq.password
-        })
-        .then((response)=>{
+      
+        const postReq = {
+          username: username,
+          password: password,
+        };
+      
+        Login(postReq)
+          .then((response) => {
             window.alert("로그인 성공!");
-            movePage('/MainScreen');
-        })
-        .catch(function(error){
+            movePage("/MainScreen");
+          })
+          .catch((error) => {
             window.alert("아이디 또는 비밀번호를 확인해주세요.");
             console.log(error);
-        })
-    }
+          });
+      };
 
     const UsernameChange = (event) => {
         setUserName(event.target.value);
