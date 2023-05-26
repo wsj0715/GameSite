@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineStar, AiFillStar, AiOutlineLike, AiFillLike } from "react-icons/ai";
 import { useParams } from "react-router-dom";
 import "../CSS/Game.css";
 import Header from "../Components/header";
 import RufflePlayer from "../Components/RufflePlayer";
 import { S3_URL } from "../api/apiClient";
-
+import { getAGames } from "../api/apiGame";
 function GameScreen() {
     const { id } = useParams();
     const [like, setLike] = useState(false);
     const [star, setStar] = useState(false);
-
+    const [gameName, setGameName] = useState("");
     const toggleLike = () => {
         setLike(!like);
     };
@@ -18,12 +18,19 @@ function GameScreen() {
     const toggleStar = () => {
         setStar(!star);
     };
+
+    useEffect(() => {
+        getAGames(id).then((res) => {
+            setGameName(res.data.name);
+        });
+    }, [id]);
+
     return (
         <div className="gamescreen">
             <Header />
 
             <div className="title">
-                <h6>(게임 이름)</h6>
+                <h6>{gameName}</h6>
             </div>
 
             <hr />
@@ -33,7 +40,7 @@ function GameScreen() {
             </div>
 
             <div className="sub">
-                <p>(게임 이름)</p>
+                <p>{gameName}</p>
 
                 <div className="icon">
                     {star ? <AiFillStar onClick={toggleStar} /> : <AiOutlineStar onClick={toggleStar} />}

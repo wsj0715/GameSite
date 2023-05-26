@@ -9,6 +9,25 @@ function MadeGame() {
     const [like, setLike] = useState(false);
     const [star, setStar] = useState(false);
 
+    function getGameName(id) {
+        let gameName;
+        switch (id) {
+            case "1":
+                gameName = "플래피 버드";
+                break;
+            case "2":
+                gameName = "언데드 서바이버";
+                break;
+            case "3":
+                gameName = "테트리스";
+                break;
+            default:
+                gameName = "게임?";
+        }
+        return gameName;
+    }
+    const gameName = getGameName(id);
+
     const toggleLike = () => {
         setLike(!like);
     };
@@ -29,7 +48,7 @@ function MadeGame() {
             <Header />
 
             <div className="title">
-                <h6>(게임 이름)</h6>
+                <h6>{gameName}</h6>
             </div>
 
             <hr />
@@ -37,7 +56,7 @@ function MadeGame() {
             <div className="madegame">{unityProvider && <Unity unityProvider={unityProvider} style={{ width: "750px", height: "500px" }} />}</div>
 
             <div className="sub">
-                <p>(게임 이름)</p>
+                <p>{gameName}</p>
 
                 <div className="icon">
                     {star ? <AiFillStar onClick={toggleStar} /> : <AiOutlineStar onClick={toggleStar} />}
