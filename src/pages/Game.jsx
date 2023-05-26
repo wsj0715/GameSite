@@ -4,8 +4,9 @@ import { useParams } from "react-router-dom";
 import "../CSS/Game.css";
 import Header from "../Components/header";
 import RufflePlayer from "../Components/RufflePlayer";
-import { S3_URL } from "../api/ApiClient";
+import { S3_URL } from "../api/apiClient";
 import { getAGames } from "../api/apiGame";
+
 function GameScreen() {
     const { id } = useParams();
     const [like, setLike] = useState(false);

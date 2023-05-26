@@ -7,12 +7,13 @@ import '../CSS/SignIn.css'
 function SignInScreen(){
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
     
     const handleSubmit = (e) => {
         e.preventDefault(); // 폼(submit) 기본 동작 방지
     
         // 입력값 확인 로직
-        if (!username || !password ) {
+        if (!username || !password || !email) {
         alert('모든 필드를 입력해주세요.');
         return;
         }
@@ -56,19 +57,19 @@ function SignInScreen(){
                   style={inputStyle}
                 />
                 <input
+                  type="text"
+                  placeholder="이메일"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  style={inputStyle}
+                />
+                <input
                   type="password"
                   placeholder="비밀번호"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   style={inputStyle}
                 />
-                {/* <input
-                  type="password"
-                  placeholder="비밀번호 확인"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  style={inputStyle}
-                /> */}
             </form>
 
             <button type="submit" className="signinBtn" onClick={goLogIn}>회원가입</button>
