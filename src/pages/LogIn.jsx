@@ -22,8 +22,10 @@ function LogInScreen(){
         };
       
         Login(postReq)
-          .then((response) => {
+          .then((res) => {
             window.alert("로그인 성공!");
+            console.log(res.data)
+            sessionStorage.setItem("username", postReq.username)
             movePage("/MainScreen");
           })
           .catch((error) => {
