@@ -1,11 +1,21 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Typography, Divider, Box, Button } from '@mui/material';
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import {AiOutlineRight} from "react-icons/ai"
 
+import { Mypage } from "../api/apiMypage";
+
 import Header from "../Components/header";
 
 function MyPageScreen(){
+    const [name, setName] = useState("");
+
+    useEffect(()=>{
+        Mypage.then((res)=>{
+            setName(res.data.name)
+        })
+    })
+
     return(
         <div className="MyPage">
             <Header />
@@ -50,7 +60,7 @@ function MyPageScreen(){
                     }}>
                     <AccountCircleOutlinedIcon style={{color: '#ffffff', fontSize: 75, margin: '50px 0 0'}}/>
                     
-                    <Typography style={{color: '#ffffff', margin: 'auto 0 10px',}}>아이디 : </Typography>
+                    <Typography style={{color: '#ffffff', margin: 'auto 0 10px',}}>아이디 : {name}</Typography>
 
                     <Button style={{
                         backgroundColor: '#d9d9d9',
