@@ -104,7 +104,7 @@ function LogInScreen(){
                 />
             
 
-                <button className="loginBtn"  onClick={goLogIn}>로그인</button>
+                <button className="loginBtn"  onClick={handleLogin}>로그인</button>
 
                 <div className="subBtn">
                     {/* <button>아이디 찾기</button>       
