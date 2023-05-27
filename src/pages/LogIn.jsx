@@ -19,13 +19,13 @@ function LogInScreen(){
     const onPasswordHandler = (event) => {
         setPassword(event.currentTarget.value)
     }
+    
+    const body = {
+        username: username,
+        password: password
+    };
 
     const handleLogin = () => {
-        let body = {
-            username: username,
-            password: password,
-        }  
-
         Login(body)
         .then((res)=>{
             if(res.data.code === 200){

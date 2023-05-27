@@ -1,5 +1,4 @@
 import axios from "axios";
-import qs from "qs";
 
 export const BACKEND_URL = "http://54.180.13.188:8080";
 export const S3_URL = "https://gameproject-jpg-video.s3.ap-northeast-2.amazonaws.com/";
@@ -9,11 +8,7 @@ export const S3_URL = "https://gameproject-jpg-video.s3.ap-northeast-2.amazonaws
 const host = window.location.hostname === "localhost" ? BACKEND_URL : "api";
 
 export const apiClient = axios.create({ 
-    baseURL: host,
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    transformRequest: [(data)=>qs.stringify(data)]
+    baseURL: host
 }); 
 
 //https://velog.io/@jiheon788/Netlify%EC%97%90%EC%84%9C-HTTPS-HTTP-%ED%86%B5%EC%8B%A0-%ED%95%B4%EA%B2%B0-%EA%B3%BC%EC%A0%95
