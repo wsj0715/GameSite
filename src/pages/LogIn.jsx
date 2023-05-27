@@ -26,6 +26,10 @@ function LogInScreen(){
     };
 
     const handleLogin = () => {
+        if(!username || !password){
+            window.alert("모든 필드를 입력해주세요.");
+            return;
+        }
         Login(body)
         .then((res)=>{
             if(res.data.code === 200){
