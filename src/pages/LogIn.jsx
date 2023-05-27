@@ -2,7 +2,6 @@
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillAliwangwang } from "react-icons/ai";
-import { useDispatch } from "react-redux";
 import axios from "axios";
 
 import { Login } from "../api/apiLogin";
