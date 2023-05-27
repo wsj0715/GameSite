@@ -2,7 +2,6 @@
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillAliwangwang } from "react-icons/ai";
-import axios from "axios";
 
 import { Login } from "../api/apiLogin";
 import '../CSS/LogIn.css'
@@ -21,55 +20,25 @@ function LogInScreen(){
         setPassword(event.currentTarget.value)
     }
 
-    const BACKEND_URL = "http://54.180.13.188:8080";
-    const host = window.location.hostname === "localhost" ? BACKEND_URL : "api";
-    const API = axios.create({ 
-        baseURL: host,
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-    });
-
     const handleLogin = () => {
-        if (!username || !password) {
-          window.alert("모든 필드를 입력하세요.");
-          return;
-        }
+        let body = {
+            username: username,
+            password: password,
+        }  
 
-        let body = new URLSearchParams();
-        body.append('username', username);
-        body.append('password', password);
-
-        API.post(`/auth/login`, body)
+        Login(body)
         .then((res)=>{
-            console.log(res.data);
             if(res.data.code === 200){
                 window.alert("로그인 성공!");
-                movePage("/");
+                console.log(res.data)
+                movePage('/');
             }
         })
         .catch((error)=>{
             window.alert("아이디 또는 비밀번호를 확인해주세요.");
             console.log(error);
         })
-      
-        // const postReq = {
-        //   username: username,
-        //   password: password,
-        // };
-      
-        // Login(postReq)
-        //   .then((res) => {
-        //     window.alert("로그인 성공!");
-        //     console.log(res.data)
-        //     sessionStorage.setItem("username", postReq.username)
-        //     movePage("/MainScreen");
-        //   })
-        //   .catch((error) => {
-        //     window.alert("아이디 또는 비밀번호를 확인해주세요.");
-        //     console.log(error);
-        //   });
-      };
+    };
 
     const FormSubmit = (event) => {
         event.preventDefault();

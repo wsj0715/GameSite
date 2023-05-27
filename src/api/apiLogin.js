@@ -1,15 +1,8 @@
 import { apiClient } from "./apiClient"
-import qs from "qs";
 
-export const Login = async (postReq) => {
-    const data = qs.stringify({
-        username: postReq.username,
-        password: postReq.password
-    })
-
+export const Login = async () => {
     return await apiClient({
         method: "post",
         url: `/auth/login`,
-        data: data
     })
 } 
