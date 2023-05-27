@@ -17,16 +17,6 @@ function SignInScreen(){
             return;
         }
     }
-    
-    const handleSubmit = (e) => {
-        e.preventDefault(); // 폼(submit) 기본 동작 방지
-    
-        // 입력값 확인 로직
-        if (!username || !password || !email) {
-        alert('모든 필드를 입력해주세요.');
-        return;
-        }
-    };
 
     const movePage = useNavigate();
 
@@ -57,7 +47,7 @@ function SignInScreen(){
                 />
             </div>
 
-            <form onSubmit={handleSubmit}> 
+            <form> 
                 <input
                   type="text"
                   placeholder="아이디"

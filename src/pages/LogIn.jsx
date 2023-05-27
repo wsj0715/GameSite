@@ -2,6 +2,7 @@
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillAliwangwang } from "react-icons/ai";
+import axios from "axios";
 
 import { Login } from "../api/apiLogin";
 import '../CSS/LogIn.css'
@@ -10,36 +11,54 @@ function LogInScreen(){
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
+    const BACKEND_URL = "http://54.180.13.188:8080";
+    const host = window.location.hostname === "localhost" ? BACKEND_URL : "api";
+    const API = axios.create({ 
+        baseURL: host,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    });
+
+    let body = {
+        username: username,
+        password: password
+    }
+
     const handleLogin = () => {
         if (!username || !password) {
           window.alert("모든 필드를 입력하세요.");
           return;
         }
-      
-        const postReq = {
-          username: username,
-          password: password,
-        };
-      
-        Login(postReq)
-          .then((res) => {
+
+        API.post('/auth/login', body)
+        .then((res)=>{
             window.alert("로그인 성공!");
-            console.log(res.data)
-            sessionStorage.setItem("username", postReq.username)
+            console.log(res.data);
             movePage("/MainScreen");
-          })
-          .catch((error) => {
+        })
+        .catch((error)=>{
             window.alert("아이디 또는 비밀번호를 확인해주세요.");
             console.log(error);
-          });
+        })
+      
+        // const postReq = {
+        //   username: username,
+        //   password: password,
+        // };
+      
+        // Login(postReq)
+        //   .then((res) => {
+        //     window.alert("로그인 성공!");
+        //     console.log(res.data)
+        //     sessionStorage.setItem("username", postReq.username)
+        //     movePage("/MainScreen");
+        //   })
+        //   .catch((error) => {
+        //     window.alert("아이디 또는 비밀번호를 확인해주세요.");
+        //     console.log(error);
+        //   });
       };
-
-    const UsernameChange = (event) => {
-        setUserName(event.target.value);
-    };
-    const UserPasswordChange = (event) => {
-        setPassword(event.target.value);
-    };
 
     const FormSubmit = (event) => {
         event.preventDefault();
@@ -82,14 +101,14 @@ function LogInScreen(){
                     type="text"
                     placeholder="아이디"
                     value={username}
-                    onChange={UsernameChange}
+                    onChange={(e)=>setUserName(e.target.value)}
                     style={inputStyle}
                 />
                 <input
                     type="password"
                     placeholder="비밀번호"
                     value={password}
-                    onChange={UserPasswordChange}
+                    onChange={(e)=>setPassword(e.target.value)}
                     style={inputStyle}
                 />
             
