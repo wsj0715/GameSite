@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillAliwangwang } from "react-icons/ai";
 
-import { Signin } from "../api/apiSignin";
+import { Signin } from "../api/apiUser";
 import '../CSS/SignIn.css'
 
 function SignInScreen(){

@@ -5,7 +5,7 @@ import { AiFillAliwangwang } from "react-icons/ai";
 import axios from "axios";
 import qs from "qs";
 
-import { Login } from "../api/apiLogin";
+import { Login } from "../api/apiUser";
 import '../CSS/LogIn.css'
 
 function LogInScreen(){

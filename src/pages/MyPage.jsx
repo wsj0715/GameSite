@@ -3,8 +3,7 @@ import { Typography, Divider, Box, Button } from '@mui/material';
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import {AiOutlineRight} from "react-icons/ai"
 
-import { Mypage } from "../api/apiMypage";
-
+import { Mypage } from "../api/apiUser";
 import Header from "../Components/header";
 
 function MyPageScreen(){
