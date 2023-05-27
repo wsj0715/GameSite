@@ -41,16 +41,13 @@ function LogInScreen(){
             window.alert("모든 필드를 입력해주세요.");
             return;
         }
-        API.post({
-            url: '/auth/login',
-            data: qs.stringify(body)
-        })
-        .then(response=>{
+        API.post('/auth/login', qs.stringify(body))
+        .then(response => {
             console.log(response.data);
         })
-        .catch(error=>{
+        .catch(error => {
             console.log(error);
-        })
+        });
     };
 
     const FormSubmit = (event) => {
