@@ -20,22 +20,24 @@ function LogInScreen(){
         }
     });
 
-    let body = {
-        username: username,
-        password: password
-    }
-
     const handleLogin = () => {
         if (!username || !password) {
           window.alert("모든 필드를 입력하세요.");
           return;
         }
 
+        let body = {
+            username: username,
+            password: password
+        }
+
         API.post(`/auth/login`, body)
         .then((res)=>{
-            window.alert("로그인 성공!");
             console.log(res.data);
-            movePage("/MainScreen");
+            if(res.data.code === 200){
+                window.alert("로그인 성공!");
+                movePage("/MainScreen");
+            }
         })
         .catch((error)=>{
             window.alert("아이디 또는 비밀번호를 확인해주세요.");
