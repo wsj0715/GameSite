@@ -8,7 +8,6 @@ import qs from "qs";
 
 import { Login } from "../api/apiLogin";
 import '../CSS/LogIn.css'
-import { response } from "express";
 
 function LogInScreen(){
     const [username, setUserName] = useState('');
