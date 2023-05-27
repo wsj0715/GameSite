@@ -36,10 +36,9 @@ function LogInScreen(){
           return;
         }
 
-        let body = {
-            username: username,
-            password: password
-        }
+        let body = new URLSearchParams();
+        body.append('username', username);
+        body.append('password', password);
 
         API.post(`/auth/login`, body)
         .then((res)=>{
