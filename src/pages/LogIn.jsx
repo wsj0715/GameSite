@@ -31,6 +31,7 @@ function LogInScreen(){
             if(res.data.code === 200){
                 window.alert("로그인 성공!");
                 console.log(res.data)
+                sessionStorage.setItem("username", username)
                 movePage('/');
             }
         })
