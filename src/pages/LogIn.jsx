@@ -42,8 +42,7 @@ function LogInScreen(){
             window.alert("모든 필드를 입력해주세요.");
             return;
         }
-        API({
-            method: 'post',
+        API.post({
             url: '/auth/login',
             data: qs.stringify(body)
         })
