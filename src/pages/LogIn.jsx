@@ -43,11 +43,11 @@ function LogInScreen(){
             return;
         }
         API.post('/auth/login', qs.stringify(body))
-        .then(response => {
-        console.log(response.data);
+            .then(response => {
+            console.log(response.data);
         })
-        .catch(error => {
-        console.log(error);
+            .catch(error => {
+            console.log(error);
         });
 
         // if(!username || !password){
@@ -102,14 +102,14 @@ function LogInScreen(){
                 <input
                     type="text"
                     placeholder="아이디"
-                    value={username}
+                    value={body.username}
                     onChange={onEmailHandler}
                     style={inputStyle}
                 />
                 <input
                     type="password"
                     placeholder="비밀번호"
-                    value={password}
+                    value={body.password}
                     onChange={onPasswordHandler}
                     style={inputStyle}
                 />
