@@ -33,6 +33,7 @@ function LogInScreen(){
         Login(body)
         .then(response => {
             console.log(response.data);
+            movePage('/')
         })
         .catch(error => {
             console.log(error);
@@ -93,10 +94,6 @@ function LogInScreen(){
                 <button className="loginBtn"  onClick={handleLogin}>로그인</button>
 
                 <div className="subBtn">
-                    {/* <button>아이디 찾기</button>       
-                    <p>|</p>     
-                    <button>비밀번호 찾기</button>     
-                    <p>|</p>             */}
                     <button onClick={goSignIn}>회원가입</button>                    
                 </div>
             </form>
