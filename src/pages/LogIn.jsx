@@ -2,9 +2,13 @@
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillAliwangwang } from "react-icons/ai";
+import { BACKEND_URL } from "../api/apiClient";
+import axios from "axios";
+import qs from "qs";
 
 import { Login } from "../api/apiLogin";
 import '../CSS/LogIn.css'
+import { response } from "express";
 
 function LogInScreen(){
     const [username, setUserName] = useState('');
@@ -19,6 +23,14 @@ function LogInScreen(){
     const onPasswordHandler = (event) => {
         setPassword(event.currentTarget.value)
     }
+
+    const host = window.location.hostname === "localhost" ? BACKEND_URL : "api";
+    const API = axios.create({
+        baseURL: host,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+    })
     
     const body = {
         username: username,
@@ -30,17 +42,15 @@ function LogInScreen(){
             window.alert("모든 필드를 입력해주세요.");
             return;
         }
-        Login(body)
-        .then((res)=>{
-            if(res.data.code === 200){
-                window.alert("로그인 성공!");
-                console.log(res.data)
-                sessionStorage.setItem("username", username)
-                movePage('/');
-            }
+        API({
+            method: 'post',
+            url: '/auth/login',
+            data: qs.stringify(body)
         })
-        .catch((error)=>{
-            window.alert("아이디 또는 비밀번호를 확인해주세요.");
+        .then(response=>{
+            console.log(response.data);
+        })
+        .catch(error=>{
             console.log(error);
         })
     };
