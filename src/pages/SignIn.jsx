@@ -7,18 +7,18 @@ import { Signin } from "../api/apiSignin";
 import '../CSS/SignIn.css'
 
 function SignInScreen(){
-    const [username, setUsername] = useState('');
+    const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
 
     const body = {
-        username: username,
+        name: name,
         email: email,
         password: password
     }
 
     const SigninHandle = () => {
-        if(!username || !password || !email){
+        if(!name || !password || !email){
             window.alert("모든 필드를 입력해주세요.");
             return;
         }
@@ -65,8 +65,8 @@ function SignInScreen(){
                 <input
                   type="text"
                   placeholder="아이디"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   style={inputStyle}
                 />
                 <input
