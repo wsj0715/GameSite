@@ -2,6 +2,7 @@
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillAliwangwang } from "react-icons/ai";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 
 import { Login } from "../api/apiLogin";
@@ -10,6 +11,16 @@ import '../CSS/LogIn.css'
 function LogInScreen(){
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
+
+    const movePage = useNavigate();
+
+    const onEmailHandler = (event) => { //state을 바꾸면 value가 바뀜
+        setUserName(event.currentTarget.value)
+    }
+  
+    const onPasswordHandler = (event) => {
+        setPassword(event.currentTarget.value)
+    }
 
     const BACKEND_URL = "http://54.180.13.188:8080";
     const host = window.location.hostname === "localhost" ? BACKEND_URL : "api";
@@ -36,7 +47,7 @@ function LogInScreen(){
             console.log(res.data);
             if(res.data.code === 200){
                 window.alert("로그인 성공!");
-                movePage("/MainScreen");
+                movePage("/");
             }
         })
         .catch((error)=>{
@@ -65,8 +76,6 @@ function LogInScreen(){
     const FormSubmit = (event) => {
         event.preventDefault();
     };
-
-    const movePage = useNavigate();
 
     function goLogIn(){
         movePage('/MainScreen')
@@ -103,14 +112,14 @@ function LogInScreen(){
                     type="text"
                     placeholder="아이디"
                     value={username}
-                    onChange={(e)=>setUserName(e.target.value)}
+                    onChange={onEmailHandler}
                     style={inputStyle}
                 />
                 <input
                     type="password"
                     placeholder="비밀번호"
                     value={password}
-                    onChange={(e)=>setPassword(e.target.value)}
+                    onChange={onPasswordHandler}
                     style={inputStyle}
                 />
             
