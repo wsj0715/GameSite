@@ -2,6 +2,8 @@
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillAliwangwang } from "react-icons/ai";
+import axios from "axios";
+import qs from "qs";
 
 import { Login } from "../api/apiLogin";
 import '../CSS/LogIn.css'
@@ -19,6 +21,13 @@ function LogInScreen(){
     const onPasswordHandler = (event) => {
         setPassword(event.currentTarget.value)
     }
+
+    const API = axios.create({
+        baseURL: "http://54.180.13.188:8080",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+    })
     
     const body = {
         username: username,
@@ -30,13 +39,12 @@ function LogInScreen(){
             window.alert("모든 필드를 입력해주세요.");
             return;
         }
-        Login(body)
+        API.post('/auth/login', qs.stringify(body))
         .then(response => {
-            console.log(response.data);
-            movePage('/')
+        console.log(response.data);
         })
         .catch(error => {
-            console.log(error);
+        console.log(error);
         });
     };
 
