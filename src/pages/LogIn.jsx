@@ -31,7 +31,7 @@ function LogInScreen(){
           return;
         }
 
-        API.post('/auth/login', body)
+        API.post(`/auth/login`, body)
         .then((res)=>{
             window.alert("로그인 성공!");
             console.log(res.data);
