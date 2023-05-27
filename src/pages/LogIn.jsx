@@ -22,8 +22,11 @@ function LogInScreen(){
         setPassword(event.currentTarget.value)
     }
 
+    const BACKEND_URL = "http://54.180.13.188:8080";
+    const host = window.location.hostname === "localhost" ? BACKEND_URL : "";
+
     const API = axios.create({
-        baseURL: "http://54.180.13.188:8080",
+        baseURL: host,
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
@@ -46,6 +49,19 @@ function LogInScreen(){
         .catch(error => {
         console.log(error);
         });
+
+        // if(!username || !password){
+        //     window.alert("모든 필드를 입력해주세요.");
+        //     return;
+        // }
+        // Login(body)
+        // .then(response => {
+        //     console.log(response.data);
+        //     movePage('/')
+        // })
+        // .catch(error => {
+        //     console.log(error);
+        // });
     };
 
     const FormSubmit = (event) => {
