@@ -1,26 +1,59 @@
-import React, {useState} from "react";
+/* eslint-disable no-unused-vars */
+import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillAliwangwang } from "react-icons/ai";
+import axios from "axios";
+import qs from "qs";
 
-// import { Login } from "../api/apiLogin";
+// import { Login } from "../api/apiUser";
 import '../CSS/LogIn.css'
 
 function LogInScreen(){
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
-    const UsernameChange = (event) => {
-        setUserName(event.target.value);
+    const movePage = useNavigate();
+
+    const onEmailHandler = (event) => { //state을 바꾸면 value가 바뀜
+        setUserName(event.currentTarget.value)
+    }
+  
+    const onPasswordHandler = (event) => {
+        setPassword(event.currentTarget.value)
+    }
+
+    const BACKEND_URL = "http://54.180.13.188:8080";
+    const host = window.location.hostname === "localhost" ? BACKEND_URL : "api";
+
+    const API = axios.create({
+        baseURL: host,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+    })
+    
+    const body = {
+        username: username,
+        password: password
     };
-    const UserPasswordChange = (event) => {
-        setPassword(event.target.value);
+
+    const handleLogin = () => {
+        if(!username || !password){
+            window.alert("모든 필드를 입력해주세요.");
+            return;
+        }
+        API.post('/auth/login', qs.stringify(body))
+            .then(response => {
+            console.log(response.data);
+        })
+            .catch(error => {
+            console.log(error);
+        });
     };
 
     const FormSubmit = (event) => {
         event.preventDefault();
     };
-
-    const movePage = useNavigate();
 
     function goLogIn(){
         movePage('/MainScreen')
@@ -56,26 +89,22 @@ function LogInScreen(){
                 <input
                     type="text"
                     placeholder="아이디"
-                    value={username}
-                    onChange={UsernameChange}
+                    value={body.username}
+                    onChange={onEmailHandler}
                     style={inputStyle}
                 />
                 <input
                     type="password"
                     placeholder="비밀번호"
-                    value={password}
-                    onChange={UserPasswordChange}
+                    value={body.password}
+                    onChange={onPasswordHandler}
                     style={inputStyle}
                 />
             
 
-                <button className="loginBtn"  onClick={goLogIn}>로그인</button>
+                <button className="loginBtn"  onClick={handleLogin}>로그인</button>
 
                 <div className="subBtn">
-                    {/* <button>아이디 찾기</button>       
-                    <p>|</p>     
-                    <button>비밀번호 찾기</button>     
-                    <p>|</p>             */}
                     <button onClick={goSignIn}>회원가입</button>                    
                 </div>
             </form>
