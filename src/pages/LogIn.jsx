@@ -35,6 +35,11 @@ function LogInScreen() {
         Login(qs.stringify(body))
             .then((response) => {
                 console.log(response.data);
+                if (document.cookie.split(";").some((item) => item.trim().startsWith("userLoggedIn="))) {
+                    console.log("The user is logged in");
+                } else {
+                    console.log("The user is not logged in");
+                }
                 movePage("/");
             })
             .catch((error) => {
