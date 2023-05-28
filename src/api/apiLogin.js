@@ -5,8 +5,9 @@ export const Login = async (data) => {
         method: "post",
         url: `/auth/login`,
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            "Content-Type": "application/x-www-form-urlencoded",
         },
-        data: data
-    })
-}
+        data: data,
+        withCredentials: true,
+    });
+};
