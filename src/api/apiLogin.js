@@ -1,4 +1,4 @@
-import { apiClient } from "./ApiClient";
+import { apiClient } from "./apiClient";
 
 export const Login = async () => {
     return await apiClient({

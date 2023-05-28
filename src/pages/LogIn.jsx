@@ -2,14 +2,12 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillAliwangwang } from "react-icons/ai";
 
-import { Login } from "../api/apiLogin";
+// import { Login } from "../api/apiLogin";
 import '../CSS/LogIn.css'
 
 function LogInScreen(){
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
-
-    
 
     const UsernameChange = (event) => {
         setUserName(event.target.value);
