@@ -2,11 +2,10 @@
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillAliwangwang } from "react-icons/ai";
-import axios from "axios";
 import qs from "qs";
+import { Login } from "../api/apiLogin";
 
-// import { Login } from "../api/apiUser";
-import '../CSS/LogIn.css'
+import '../CSS/LogIn.css';
 
 function LogInScreen(){
     const [username, setUserName] = useState('');
@@ -21,16 +20,6 @@ function LogInScreen(){
     const onPasswordHandler = (event) => {
         setPassword(event.currentTarget.value)
     }
-
-    const BACKEND_URL = "http://54.180.13.188:8080";
-    const host = window.location.hostname === "localhost" ? BACKEND_URL : "api";
-
-    const API = axios.create({
-        baseURL: host,
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-    })
     
     const body = {
         username: username,
@@ -42,9 +31,10 @@ function LogInScreen(){
             window.alert("모든 필드를 입력해주세요.");
             return;
         }
-        API.post('/auth/login', qs.stringify(body))
+        Login(qs.stringify(body))
             .then(response => {
             console.log(response.data);
+            movePage('/')
         })
             .catch(error => {
             console.log(error);
@@ -89,14 +79,14 @@ function LogInScreen(){
                 <input
                     type="text"
                     placeholder="아이디"
-                    value={body.username}
+                    value={username}
                     onChange={onEmailHandler}
                     style={inputStyle}
                 />
                 <input
                     type="password"
                     placeholder="비밀번호"
-                    value={body.password}
+                    value={password}
                     onChange={onPasswordHandler}
                     style={inputStyle}
                 />
