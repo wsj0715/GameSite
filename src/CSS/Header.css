@@ -172,8 +172,7 @@ body{
 
     .menu.active,
     .search-container.active,
-    .user.active,
-    .register.active{
+    .user.active{
         display: flex;
     }
 }

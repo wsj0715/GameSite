@@ -13,13 +13,11 @@ const Header = () => {
     const [menuActive, setMenuActive] = useState(false);
     const [searchActive, setSearchActive] = useState(false);
     const [iconActive, setIconActive] = useState(false);
-    const [registerActive, setRegisterActive] = useState(false);
 
     const handleToggle = () => {
         setMenuActive(!menuActive);
         setSearchActive(!searchActive);
         setIconActive(!iconActive);
-        setRegisterActive(!registerActive);
     };
 
     const movePage = useNavigate();
@@ -92,20 +90,11 @@ const Header = () => {
                             style={{
                                 fontSize: 30,
                                 color: "#ffffff",
+                                marginBottom: 12
                             }}
                         />
                     </IconButton>
                 </div>
-
-                <ul className={`register ${registerActive ? "active" : ""}`}>
-                    <li>
-                        <a onClick={goLogIn}>로그인</a>
-                    </li>
-                    <span>|</span>
-                    <li>
-                        <a onClick={goSignIn}>회원가입</a>
-                    </li>
-                </ul>
 
                 <button className="toggleBtn" onClick={handleToggle}>
                     <FaBars
