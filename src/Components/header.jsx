@@ -14,17 +14,12 @@ const Header = () => {
     const [searchActive, setSearchActive] = useState(false);
     const [iconActive, setIconActive] = useState(false);
     const [registerActive, setRegisterActive] = useState(false);
-    const [profileActive, setProfileActive] = useState(false);
 
     const handleToggle = () => {
         setMenuActive(!menuActive);
         setSearchActive(!searchActive);
         setIconActive(!iconActive);
         setRegisterActive(!registerActive);
-    };
-
-    const handleProfile = () => {
-        setProfileActive(!profileActive);
     };
 
     const movePage = useNavigate();
@@ -68,14 +63,20 @@ const Header = () => {
 
                 <ul className={`menu ${menuActive ? "active" : ""}`}>
                     <li>
-                        <a>카테고리</a>
+                        <a onClick={goLogIn}>로그인</a>
+                    </li>
+                    <li>
+                        <a onClick={goSignIn}>회원가입</a>
                     </li>
                     <li>
                         <a onClick={goCommunity}>커뮤니티</a>
                     </li>
-                    <li>
+                    {/* <li>
+                        <a>카테고리</a>
+                    </li> */}
+                    {/* <li>
                         <a>즐겨찾는 게임</a>
-                    </li>
+                    </li> */}
                 </ul>
 
                 <div className={`search-container ${searchActive ? "active" : ""}`}>
@@ -86,7 +87,7 @@ const Header = () => {
                 </div>
 
                 <div className={`user ${iconActive ? "active" : ""}`}>
-                    <IconButton onClick={handleProfile}>
+                    <IconButton onClick={goMyPage}>
                         <AccountCircleOutlinedIcon
                             style={{
                                 fontSize: 30,
@@ -101,18 +102,6 @@ const Header = () => {
                         <a onClick={goLogIn}>로그인</a>
                     </li>
                     <span>|</span>
-                    <li>
-                        <a onClick={goSignIn}>회원가입</a>
-                    </li>
-                </ul>
-
-                <ul className={`profile ${profileActive ? "active" : ""}`}>
-                    <li>
-                        <a onClick={goMyPage}>마이페이지</a>
-                    </li>
-                    <li>
-                        <a onClick={goLogIn}>로그인</a>
-                    </li>
                     <li>
                         <a onClick={goSignIn}>회원가입</a>
                     </li>
