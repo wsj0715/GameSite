@@ -1,11 +1,25 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Typography, Divider, Box, Button } from '@mui/material';
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import {AiOutlineRight} from "react-icons/ai"
+// import {AiOutlineRight} from "react-icons/ai"
 
+import { Mypage } from "../api/apiMypage";
 import Header from "../Components/header";
 
 function MyPageScreen(){
+    const [name, setName] = useState("");
+
+    useEffect(()=>{
+        Mypage()
+        .then((res)=>{
+            setName(res.data);
+            console.log(res.data);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    })
+
     return(
         <div className="MyPage">
             <Header />
@@ -50,9 +64,9 @@ function MyPageScreen(){
                     }}>
                     <AccountCircleOutlinedIcon style={{color: '#ffffff', fontSize: 75, margin: '50px 0 0'}}/>
                     
-                    <Typography style={{color: '#ffffff', margin: 'auto 0 10px',}}>아이디 : </Typography>
+                    <Typography style={{color: '#ffffff', margin: 'auto 0 10px',}}>아이디 : {name}</Typography>
 
-                    <Button style={{
+                    {/* <Button style={{
                         backgroundColor: '#d9d9d9',
                         borderRadius: 0,
                         color: '#575757',
@@ -63,7 +77,7 @@ function MyPageScreen(){
                     }}>
                         즐겨찾는 게임
                         <AiOutlineRight/>
-                    </Button>
+                    </Button> */}
 
                     <Button style={{
                         backgroundColor: '#32384C', 
