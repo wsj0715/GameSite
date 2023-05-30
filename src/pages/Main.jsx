@@ -6,7 +6,7 @@ import "../CSS/Main.css";
 import { getAllGames } from "../api/apiGame";
 const madeGameList = [
     { id: 1, name: "플래피 버드" },
-    //{ id: 2, name: "언데드 서바이버" },
+    { id: 2, name: "언데드 서바이버" },
     { id: 3, name: "테트리스" },
 ];
 const loadScript = (url) => {

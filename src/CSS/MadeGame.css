@@ -7,10 +7,19 @@ hr {
     margin: 0 20px;
 }
 
-.madegame {
+.madegame1 {
     background-color: #d9d9d9;
     height: 500px;
     width: 750px;
+    border-radius: 20px;
+    margin: 50px auto 0;
+    padding: 15px;
+}
+
+.madegame2 {
+    background-color: #d9d9d9;
+    height: 905px;
+    width: 509px;
     border-radius: 20px;
     margin: 50px auto 0;
     padding: 15px;

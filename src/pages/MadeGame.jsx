@@ -45,31 +45,38 @@ function MadeGame() {
 
     return (
         <div className="gamescreen">
-            <Header />
-
-            <div className="title">
-                <h6>{gameName}</h6>
+          <Header />
+      
+          <div className="title">
+            <h6>{gameName}</h6>
+          </div>
+      
+          <hr />
+          {id === "1" ? (
+            <div className="madegame1">
+              {unityProvider && <Unity unityProvider={unityProvider} style={{ width: "750px", height: "500px" }} />}
             </div>
-
-            <hr />
-
-            <div className="madegame">{unityProvider && <Unity unityProvider={unityProvider} style={{ width: "750px", height: "500px" }} />}</div>
-
-            <div className="sub">
-                <p>{gameName}</p>
-
-                <div className="icon">
-                    {star ? <AiFillStar onClick={toggleStar} /> : <AiOutlineStar onClick={toggleStar} />}
-
-                    {like ? (
-                        <AiFillLike style={{ marginLeft: 10 }} onClick={toggleLike} />
-                    ) : (
-                        <AiOutlineLike style={{ marginLeft: 10 }} onClick={toggleLike} />
-                    )}
-                </div>
+          ) : id === "2" ? (
+            <div className="madegame2">
+              {unityProvider && <Unity unityProvider={unityProvider} style={{ width: "509px", height: "905px" }} />}
             </div>
+          ) : null}
+          <div className="sub">
+            <p>{gameName}</p>
+      
+            <div className="icon">
+              {star ? <AiFillStar onClick={toggleStar} /> : <AiOutlineStar onClick={toggleStar} />}
+      
+              {like ? (
+                <AiFillLike style={{ marginLeft: 10 }} onClick={toggleLike} />
+              ) : (
+                <AiOutlineLike style={{ marginLeft: 10 }} onClick={toggleLike} />
+              )}
+            </div>
+          </div>
         </div>
-    );
+      );
+      
 }
 
 export default MadeGame;
