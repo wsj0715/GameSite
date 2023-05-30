@@ -50,6 +50,7 @@ const Header = () => {
     function logout(){
         localStorage.removeItem("token");
         movePage('/')
+        window.location.reload();
     }
 
     return (

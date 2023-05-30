@@ -3,9 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillAliwangwang } from "react-icons/ai";
 
-import { Mypage } from "../api/apiMypage";
 import { Login } from "../api/apiLogin";
-import axios from "axios";
 
 import "../CSS/LogIn.css";
 
@@ -34,28 +32,21 @@ function LogInScreen() {
             window.alert("모든 필드를 입력해주세요.");
             return;
         }
+
         Login(body)
             .then((response) => {
                 const { token } = response.data;
 
-                if(response.status === 200) {
-                    // axios.defaults.headers.common[
-                    // "Authorization"
-                    // ] = `Bearer ${token}`;
-
-                    localStorage.setItem("token", token);
-
-                    movePage("/");
-
-                }
+                if (response.status === 200) {
+                    if (token) {
+                      localStorage.setItem("token", token);
+                      movePage("/");
+                    } else {
+                      window.alert("아이디 또는 비밀번호를 확인해주세요.");
+                    }
+                  }
                 
                 console.log(response.data);
-
-                // if (document.cookie.split(";").some((item) => item.trim().startsWith("userLoggedIn="))) {
-                //     console.log("The user is logged in");
-                // } else {
-                //     console.log("The user is not logged in");
-                // }
             })
             .catch((error) => {
                 console.log(error);
@@ -65,10 +56,6 @@ function LogInScreen() {
     const FormSubmit = (event) => {
         event.preventDefault();
     };
-
-    function goLogIn() {
-        movePage("/MainScreen");
-    }
 
     function goSignIn() {
         movePage("/SignInScreen");

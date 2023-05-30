@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import { Typography, Divider, Box, Button } from '@mui/material';
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { useNavigate } from "react-router-dom";
-// import {AiOutlineRight} from "react-icons/ai"
 
 import { Mypage } from "../api/apiMypage";
 import Header from "../Components/header";
@@ -16,6 +15,7 @@ function MyPageScreen(){
     function logout(){
         localStorage.removeItem("token");
         movePage('/')
+        window.location.reload();
     }
  
     function goLogin(){
@@ -82,20 +82,6 @@ function MyPageScreen(){
                         <Typography style={{color: '#ffffff', marginBottom: 30}}>이메일 : {email}</Typography>
                         <Typography style={{color: '#ffffff', textAlign: 'center'}}>이름 : {name}</Typography>
                     </Box>
-                    
-
-                    {/* <Button style={{
-                        backgroundColor: '#d9d9d9',
-                        borderRadius: 0,
-                        color: '#575757',
-                        width: 150,
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        marginBottom: 100
-                    }}>
-                        즐겨찾는 게임
-                        <AiOutlineRight/>
-                    </Button> */}
 
                     {localStorage.token ? (
                         <div>
