@@ -18,7 +18,7 @@ function LogInScreen() {
     const onEmailHandler = (event) => {
         //state을 바꾸면 value가 바뀜
         setUserName(event.currentTarget.value);
-    };
+    }; 
 
     const onPasswordHandler = (event) => {
         setPassword(event.currentTarget.value);

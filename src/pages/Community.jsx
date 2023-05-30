@@ -17,7 +17,7 @@ function CommunityScreen() {
     useEffect(() => {
         getPostsList()
             .then((res) => {
-                setPostsList(res);
+                setPostsList(res.data);
                 console.log("게시글 목록 성공");
             })
             .catch((err) => {
@@ -38,7 +38,7 @@ function CommunityScreen() {
                 console.log("post 성공");
                 getPostsList()
                     .then((res) => {
-                        setPostsList(res);
+                        setPostsList(res.data);
                         console.log("게시글 목록 성공");
                     })
                     .catch((err) => {

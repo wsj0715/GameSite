@@ -7,7 +7,7 @@ export const Login = async (data) => {
         data: data,
         withCredentials: false,
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json', 
             // 'Authorization': `Bearer ${localStorage.getItem("token")}`
         }
     })

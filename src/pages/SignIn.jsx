@@ -19,7 +19,7 @@ function SignInScreen(){
     const body = {
         name: username,
         email: email,
-        password: password
+        password: password 
     }
 
     const handleSignup = () => {

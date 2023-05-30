@@ -37,10 +37,10 @@ const Header = () => {
 
     function goHome() {
         movePage("/MainScreen");
-    }
+    } 
 
     function goMyPage() {
-        movePage("/MyPageScreen");
+        movePage("/MyPageScreen"); 
     }
 
     function goCommunity() {

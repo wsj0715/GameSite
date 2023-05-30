@@ -9,7 +9,7 @@ import Header from "../Components/header";
 
 function MyPageScreen(){
     const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
+    const [email, setEmail] = useState(""); 
 
     const movePage = useNavigate();
     
