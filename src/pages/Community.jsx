@@ -142,8 +142,8 @@ function CommunityScreen() {
                 >
                     작성하기
                 </Button>
-                {postsList.map((post) => (
-                    <PostCard post={post} />
+                {postsList.map((post, index) => (
+                    <PostCard key={index} post={post} />
                 ))}
             </Box>
         </div>
