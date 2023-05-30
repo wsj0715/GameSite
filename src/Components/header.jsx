@@ -36,7 +36,7 @@ const Header = () => {
     }
 
     function goHome() {
-        movePage("/MainScreen");
+        movePage("/");
     } 
 
     function goMyPage() {
