@@ -33,7 +33,11 @@ function SignInScreen(){
                 movePage('/LoginScreen');
         })
             .catch(error => {
-            console.log(error);
+                if (error.response && error.response.status === 400) {
+                    alert("아이디가 이미 존재합니다.");
+                } else {
+                    console.log(error);
+                }
         });
     }
 
