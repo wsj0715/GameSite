@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Typography, Divider, Box, Button } from '@mui/material';
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import { useNavigate } from "react-router-dom";
 // import {AiOutlineRight} from "react-icons/ai"
 
 import { Mypage } from "../api/apiMypage";
@@ -8,11 +9,24 @@ import Header from "../Components/header";
 
 function MyPageScreen(){
     const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+
+    const movePage = useNavigate();
+    
+    function logout(){
+        localStorage.removeItem("token");
+        movePage('/')
+    }
+ 
+    function goLogin(){
+        movePage('/LoginScreen')
+    }
 
     useEffect(()=>{
         Mypage()
         .then((res)=>{
-            setName(res.data);
+            setName(res.data.name);
+            setEmail(res.data.email);
             console.log(res.data);
         })
         .catch((err)=>{
@@ -64,7 +78,11 @@ function MyPageScreen(){
                     }}>
                     <AccountCircleOutlinedIcon style={{color: '#ffffff', fontSize: 75, margin: '50px 0 0'}}/>
                     
-                    <Typography style={{color: '#ffffff', margin: 'auto 0 10px',}}>아이디 : {name}</Typography>
+                    <Box style={{margin: '70px 0'}}>
+                        <Typography style={{color: '#ffffff', marginBottom: 30}}>이메일 : {email}</Typography>
+                        <Typography style={{color: '#ffffff', textAlign: 'center'}}>이름 : {name}</Typography>
+                    </Box>
+                    
 
                     {/* <Button style={{
                         backgroundColor: '#d9d9d9',
@@ -79,16 +97,34 @@ function MyPageScreen(){
                         <AiOutlineRight/>
                     </Button> */}
 
-                    <Button style={{
-                        backgroundColor: '#32384C', 
-                        color: '#ffffff', 
-                        width: 250, 
-                        height: 50,
-                        borderRadius: 30,
-                        margin: 'auto 0 50px'
-                    }}>
-                        로그아웃
-                    </Button>
+                    {localStorage.token ? (
+                        <div>
+                            <Button style={{
+                                backgroundColor: '#32384C', 
+                                color: '#ffffff', 
+                                width: 250, 
+                                height: 50,
+                                borderRadius: 30,
+                                margin: 'auto 0 50px'
+                            }} onClick={logout}>
+                                로그아웃
+                            </Button>
+                        </div>
+                    ) : (
+                        <div>
+                            <Button style={{
+                                backgroundColor: '#32384C', 
+                                color: '#ffffff', 
+                                width: 250, 
+                                height: 50,
+                                borderRadius: 30,
+                                margin: 'auto 0 50px'
+                            }} onClick={goLogin}>
+                                로그인
+                            </Button>
+                        </div>
+                    )}
+                    
                 </Box>
             </Box>
         </div>

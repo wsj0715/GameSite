@@ -5,10 +5,10 @@ export const Login = async (data) => {
         method: "post",
         url: `/auth/login`,
         data: data,
-        withCredentials: true,
+        withCredentials: false,
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem("token")}`
+            // 'Authorization': `Bearer ${localStorage.getItem("token")}`
         }
     })
 }

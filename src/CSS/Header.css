@@ -107,6 +107,15 @@ body{
     margin-top: 13px;
 }
 
+.header .menu .haveToken{
+    display: flex;
+    flex-direction: row;
+}
+
+.header .menu .noToken{
+    display: flex;
+    flex-direction: row;
+}
 
 
 @media screen and (max-width: 800px) {
@@ -174,5 +183,11 @@ body{
     .search-container.active,
     .user.active{
         display: flex;
+    }
+
+    .menu .haveToken.active,
+    .menu .noToken.active{
+        display: flex;
+        flex-direction: column;
     }
 }

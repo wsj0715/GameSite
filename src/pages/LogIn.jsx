@@ -39,21 +39,14 @@ function LogInScreen() {
                 const { token } = response.data;
 
                 if(response.status === 200) {
-                    axios.defaults.headers.common[
-                    "Authorization"
-                    ] = `Bearer ${token}`;
+                    // axios.defaults.headers.common[
+                    // "Authorization"
+                    // ] = `Bearer ${token}`;
 
                     localStorage.setItem("token", token);
 
                     movePage("/");
 
-                    Mypage()
-                    .then((response)=>{
-                        console.log(response.data)
-                    })
-                    .catch((error)=>{
-                        console.log(error)
-                    })
                 }
                 
                 console.log(response.data);

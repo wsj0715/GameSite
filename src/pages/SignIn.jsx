@@ -14,6 +14,8 @@ function SignInScreen(){
         e.preventDefault(); // 폼(submit) 기본 동작 방지
     };
 
+    const movePage = useNavigate();
+
     const body = {
         name: username,
         email: email,
@@ -27,18 +29,12 @@ function SignInScreen(){
         }
         Signin(body)
             .then(response => {
-                console.log(response.data);
+                console.log(response.data.token);
                 movePage('/LoginScreen');
         })
             .catch(error => {
             console.log(error);
         });
-    }
-
-    const movePage = useNavigate();
-
-    function goLogIn(){
-        movePage('/LogInScreen')
     }
 
     const inputStyle={

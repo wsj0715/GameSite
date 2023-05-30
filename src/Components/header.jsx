@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -13,11 +14,15 @@ const Header = () => {
     const [menuActive, setMenuActive] = useState(false);
     const [searchActive, setSearchActive] = useState(false);
     const [iconActive, setIconActive] = useState(false);
+    const [tokenActive, setTokenActive] = useState(false);
+    const [notokenActive, setNoTokenActive] = useState(false);
 
     const handleToggle = () => {
         setMenuActive(!menuActive);
         setSearchActive(!searchActive);
         setIconActive(!iconActive);
+        setTokenActive(!tokenActive);
+        setNoTokenActive(!notokenActive);
     };
 
     const movePage = useNavigate();
@@ -42,6 +47,11 @@ const Header = () => {
         movePage("/CommunityScreen");
     }
 
+    function logout(){
+        localStorage.removeItem("token");
+        movePage('/')
+    }
+
     return (
         <div>
             <header className="header">
@@ -60,15 +70,18 @@ const Header = () => {
                 </div>
 
                 <ul className={`menu ${menuActive ? "active" : ""}`}>
-                    <li>
-                        <a onClick={goLogIn}>로그인</a>
-                    </li>
-                    <li>
-                        <a onClick={goSignIn}>회원가입</a>
-                    </li>
-                    <li>
-                        <a onClick={goCommunity}>커뮤니티</a>
-                    </li>
+                    {localStorage.token ? (
+                        <div className={`haveToken ${menuActive ? "active" : ""}`}>
+                            <li><a onClick={logout}>로그아웃</a></li>
+                            <li><a onClick={goCommunity}>커뮤니티</a></li>
+                        </div>
+                    ) : (
+                        <div className={`noToken ${menuActive ? "active" : ""}`}>
+                            <li><a onClick={goLogIn}>로그인</a></li>
+                            <li><a onClick={goSignIn}>회원가입</a></li>
+                        </div>
+                    )}
+                    
                 </ul>
 
                 <div className={`search-container ${searchActive ? "active" : ""}`}>
