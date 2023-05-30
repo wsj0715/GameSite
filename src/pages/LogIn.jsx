@@ -2,8 +2,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillAliwangwang } from "react-icons/ai";
-import qs from "qs";
+
+import { Mypage } from "../api/apiMypage";
 import { Login } from "../api/apiLogin";
+import axios from "axios";
 
 import "../CSS/LogIn.css";
 
@@ -23,7 +25,7 @@ function LogInScreen() {
     };
 
     const body = {
-        username: username,
+        email: username,
         password: password,
     };
 
@@ -32,15 +34,35 @@ function LogInScreen() {
             window.alert("모든 필드를 입력해주세요.");
             return;
         }
-        Login(qs.stringify(body))
+        Login(body)
             .then((response) => {
-                console.log(response.data);
-                if (document.cookie.split(";").some((item) => item.trim().startsWith("userLoggedIn="))) {
-                    console.log("The user is logged in");
-                } else {
-                    console.log("The user is not logged in");
+                const { token } = response.data;
+
+                if(response.status === 200) {
+                    axios.defaults.headers.common[
+                    "Authorization"
+                    ] = `Bearer ${token}`;
+
+                    localStorage.setItem("token", token);
+
+                    movePage("/");
+
+                    Mypage()
+                    .then((response)=>{
+                        console.log(response.data)
+                    })
+                    .catch((error)=>{
+                        console.log(error)
+                    })
                 }
-                movePage("/");
+                
+                console.log(response.data);
+
+                // if (document.cookie.split(";").some((item) => item.trim().startsWith("userLoggedIn="))) {
+                //     console.log("The user is logged in");
+                // } else {
+                //     console.log("The user is not logged in");
+                // }
             })
             .catch((error) => {
                 console.log(error);
