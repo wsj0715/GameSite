@@ -69,12 +69,6 @@ const Header = () => {
                     <li>
                         <a onClick={goCommunity}>커뮤니티</a>
                     </li>
-                    {/* <li>
-                        <a>카테고리</a>
-                    </li> */}
-                    {/* <li>
-                        <a>즐겨찾는 게임</a>
-                    </li> */}
                 </ul>
 
                 <div className={`search-container ${searchActive ? "active" : ""}`}>
@@ -90,7 +84,7 @@ const Header = () => {
                             style={{
                                 fontSize: 30,
                                 color: "#ffffff",
-                                marginBottom: 12
+                                margin: "10px 0 12px"
                             }}
                         />
                     </IconButton>
