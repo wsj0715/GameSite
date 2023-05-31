@@ -49,9 +49,9 @@ function MainScreen() {
                 <h6>사이트 게임</h6>
             </div>
 
-            <hr />
+            <hr />{
             <HomeContentList contents={gameList} />
-        </div>
+        }</div>
     );
 }
 
