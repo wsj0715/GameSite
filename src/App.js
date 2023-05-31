@@ -9,6 +9,7 @@ import CommunityScreen from "./pages/Community";
 import Tetris from "./pages/Tetris";
 import Error from "./pages/Error";
 import MadeGame from "./pages/MadeGame";
+import PrivateRoute from "./pages/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -34,7 +35,8 @@ const router = createBrowserRouter([
     },
     {
         path: "/MadeGameScreen/:id",
-        element: <MadeGame />,
+        element: <PrivateRoute />,
+        children: [{ index: true, element: <MadeGame /> }],
     },
     {
         path: "/MainScreen",
