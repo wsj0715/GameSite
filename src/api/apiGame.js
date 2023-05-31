@@ -7,6 +7,16 @@ export const getAllGames = async () => {
     });
 };
 
+export const getSearchGames = async (keyword) => {
+    return await apiClient({
+        method: "get",
+        url: `/`,
+        params: {
+            name: keyword,
+        },
+    });
+};
+
 export const getAGames = async (id) => {
     return await apiClient({
         method: "get",

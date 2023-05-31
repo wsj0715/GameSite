@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import HomeContentList from "../Components/HomeContentList";
 import Header from "../Components/header";
 import "../CSS/Main.css";
-import { getAllGames } from "../api/apiGame";
+import { getAllGames, getSearchGames } from "../api/apiGame";
+
 const madeGameList = [
     { id: 1, name: "플래피 버드" },
     { id: 2, name: "언데드 서바이버" },
@@ -21,6 +22,14 @@ const loadScript = (url) => {
 };
 function MainScreen() {
     const [gameList, setGameList] = useState([]); // 게임 목록
+    const [serachValue, setSearchValue] = useState("");
+
+    const handleSearch = () => {
+        console.log(serachValue);
+        getSearchGames(serachValue).then((res) => {
+            setGameList(res.data);
+        });
+    };
 
     useEffect(() => {
         getAllGames()
@@ -36,7 +45,7 @@ function MainScreen() {
 
     return (
         <div>
-            <Header />
+            <Header setSearchValue={setSearchValue} handleSearch={handleSearch} />
 
             <div className="title">
                 <h6>제작 게임</h6>
