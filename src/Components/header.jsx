@@ -7,10 +7,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { FaBars } from "react-icons/fa";
 import { AiFillAliwangwang } from "react-icons/ai";
-
 import "../CSS/Header.css";
 
-const Header = () => {
+const Header = ({ setSearchValue, handleSearch }) => {
     const [menuActive, setMenuActive] = useState(false);
     const [searchActive, setSearchActive] = useState(false);
     const [iconActive, setIconActive] = useState(false);
@@ -25,6 +24,11 @@ const Header = () => {
         setNoTokenActive(!notokenActive);
     };
 
+    const submit = (e) => {
+        if (e.key === "Enter") {
+            handleSearch();
+        }
+    };
     const movePage = useNavigate();
 
     function goLogIn() {
@@ -37,19 +41,19 @@ const Header = () => {
 
     function goHome() {
         movePage("/");
-    } 
+    }
 
     function goMyPage() {
-        movePage("/MyPageScreen"); 
+        movePage("/MyPageScreen");
     }
 
     function goCommunity() {
         movePage("/CommunityScreen");
     }
 
-    function logout(){
+    function logout() {
         localStorage.removeItem("token");
-        movePage('/')
+        movePage("/");
         window.location.reload();
     }
 
@@ -73,23 +77,36 @@ const Header = () => {
                 <ul className={`menu ${menuActive ? "active" : ""}`}>
                     {localStorage.token ? (
                         <div className={`haveToken ${menuActive ? "active" : ""}`}>
-                            <li><a onClick={logout}>로그아웃</a></li>
-                            <li><a onClick={goCommunity}>커뮤니티</a></li>
+                            <li>
+                                <a onClick={logout}>로그아웃</a>
+                            </li>
+                            <li>
+                                <a onClick={goCommunity}>커뮤니티</a>
+                            </li>
                         </div>
                     ) : (
                         <div className={`noToken ${menuActive ? "active" : ""}`}>
-                            <li><a onClick={goLogIn}>로그인</a></li>
-                            <li><a onClick={goSignIn}>회원가입</a></li>
+                            <li>
+                                <a onClick={goLogIn}>로그인</a>
+                            </li>
+                            <li>
+                                <a onClick={goSignIn}>회원가입</a>
+                            </li>
                         </div>
                     )}
-                    
                 </ul>
 
                 <div className={`search-container ${searchActive ? "active" : ""}`}>
                     <div className="search-icon">
                         <SearchIcon />
                     </div>
-                    <input placeholder="게임을 검색하세요." />
+                    <input
+                        onKeyDown={submit}
+                        placeholder="게임을 검색하세요."
+                        onChange={(e) => {
+                            setSearchValue(e.target.value);
+                        }}
+                    />
                 </div>
 
                 <div className={`user ${iconActive ? "active" : ""}`}>
@@ -98,7 +115,7 @@ const Header = () => {
                             style={{
                                 fontSize: 30,
                                 color: "#ffffff",
-                                margin: "10px 0 12px"
+                                margin: "10px 0 12px",
                             }}
                         />
                     </IconButton>
