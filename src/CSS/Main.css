@@ -1,14 +1,14 @@
-.title h6{
-    color: #D9D9D9;
+.title h6 {
+    color: #d9d9d9;
     font-size: 20px;
     margin: 85px 0 15px 50px;
 }
 
-hr{
-    margin: 20px 20px;
+hr {
+    margin: 20px;
 }
 
-.games{
+.games {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -21,10 +21,10 @@ hr{
     list-style: none;
     margin: 0;
     padding: 0;
-} 
+}
 
-.games ul li{
-    margin: 20px 35px 50px; 
+.games ul li {
+    margin: 20px 35px 50px;
 }
 
 .games img {
@@ -32,13 +32,13 @@ hr{
     height: auto;
 }
 
-.title2 h6{
-    color: #D9D9D9;
+.title2 h6 {
+    color: #d9d9d9;
     font-size: 20px;
     margin: 15px 0 15px 50px;
 }
 
-.games2{
+.games2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -51,10 +51,10 @@ hr{
     list-style: none;
     margin: 0;
     padding: 0;
-} 
+}
 
-.games2 ul li{
-    margin: 20px 35px 50px; 
+.games2 ul li {
+    margin: 20px 35px 50px;
 }
 
 .games2 img {
@@ -63,7 +63,7 @@ hr{
 }
 
 .games ul li a,
-.games2 ul li a{
+.games2 ul li a {
     text-decoration: none;
     cursor: pointer;
 }

@@ -7,14 +7,11 @@ import { getPostsList, postPosts } from "../api/apiCommunity";
 function CommunityScreen() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
-
     const [postsList, setPostsList] = useState([]);
 
-    const body = {
-        title: title,
-        content: content,
-    };
-    useEffect(() => {
+    const body = { title: title, content: content };
+
+    const getAndSetPostsList = async () => {
         getPostsList()
             .then((res) => {
                 setPostsList(res.data);
@@ -23,7 +20,15 @@ function CommunityScreen() {
             .catch((err) => {
                 console.error("게시글 목록 실패");
             });
+    };
+
+    useEffect(() => {
+        getAndSetPostsList();
     }, []);
+
+    const afterDelete = () => {
+        getAndSetPostsList();
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault(); // 폼(submit) 기본 동작 방지
@@ -36,20 +41,16 @@ function CommunityScreen() {
         postPosts(body)
             .then((res) => {
                 console.log("post 성공");
-                getPostsList()
-                    .then((res) => {
-                        setPostsList(res.data);
-                        console.log("게시글 목록 성공");
-                    })
-                    .catch((err) => {
-                        console.error("게시글 목록 실패");
-                    });
+                setTitle("");
+                setContent("");
+                getAndSetPostsList();
             })
             .catch((err) => {
                 console.log("post 실패");
                 console.error(err);
             });
     };
+
     return (
         <div>
             <Header />
@@ -128,7 +129,6 @@ function CommunityScreen() {
                         },
                     }}
                 />
-
                 <Button
                     type="submit"
                     style={{
@@ -142,10 +142,10 @@ function CommunityScreen() {
                 >
                     작성하기
                 </Button>
-                {postsList.map((post, index) => (
-                    <PostCard key={index} post={post} />
-                ))}
             </Box>
+            {postsList.map((post, index) => {
+                return <PostCard key={index} post={post} afterDelete={afterDelete} />;
+            })}
         </div>
     );
 }
