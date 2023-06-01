@@ -13,6 +13,7 @@ export const apiClient = axios.create({
 
 apiClient.interceptors.request.use((config) => {
     const message = {
+        uri: apiClient.getUri(config),
         time: Date.now(),
         config: config,
     };
