@@ -20,6 +20,6 @@ export const getSearchGames = async (keyword) => {
 export const getAGames = async (id) => {
     return await apiClient({
         method: "get",
-        url: `/game/${id}`,
+        url: `game/${id}`,
     });
 };
