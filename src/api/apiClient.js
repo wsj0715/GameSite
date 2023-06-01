@@ -22,9 +22,7 @@ apiClient.interceptors.request.use((config) => {
 
 apiClient.interceptors.response.use(
     (response) => {
-        const customUuid = response.config && response.config.reqId ? response.config.reqId : "";
         const message = {
-            reqId: customUuid,
             time: Date.now(),
             status: response.status,
             data: response.data,
