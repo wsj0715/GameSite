@@ -6,8 +6,55 @@ export const S3_URL = "https://gameproject-jpg-video.s3.ap-northeast-2.amazonaws
 //때문에 api를 url에 붙여 _redirects 파일에서 설정한대로 리아다이렉트 되도록 한다.
 const host = window.location.hostname === "localhost" ? BACKEND_URL : "api";
 console.log(host);
+
 export const apiClient = axios.create({
     baseURL: host,
 });
+
+apiClient.interceptors.request.use((config) => {
+    const message = {
+        time: Date.now(),
+        config: config,
+    };
+    console.log(message);
+    return config;
+});
+
+apiClient.interceptors.response.use(
+    (response) => {
+        const customUuid = response.config && response.config.reqId ? response.config.reqId : "";
+        const message = {
+            reqId: customUuid,
+            time: Date.now(),
+            status: response.status,
+            data: response.data,
+            headers: response.headers,
+            logMessage: "RESPONSE RECEIVED",
+        };
+        console.log(message);
+        return response;
+    },
+    (error) => {
+        const customUuid = error.response && error.response.config && error.response.config.reqId ? error.response.config.reqId : "";
+
+        const errorResponse = error.response
+            ? error.response
+            : {
+                  status: null,
+                  data: null,
+                  headers: null,
+              };
+        const message = {
+            reqId: customUuid,
+            time: Date.now(),
+            status: errorResponse.status,
+            data: errorResponse.data,
+            headers: errorResponse.headers,
+            logMessage: error.message || "ERROR",
+        };
+        console.log(message);
+        return Promise.reject(error);
+    }
+);
 
 //https://velog.io/@jiheon788/Netlify%EC%97%90%EC%84%9C-HTTPS-HTTP-%ED%86%B5%EC%8B%A0-%ED%95%B4%EA%B2%B0-%EA%B3%BC%EC%A0%95

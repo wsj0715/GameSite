@@ -13,7 +13,7 @@ import PrivateRoute from "./pages/PrivateRoute";
 
 const router = createBrowserRouter([
     {
-        path: "/a",
+        path: "/",
         element: <MainScreen />,
         errorElement: <Error />,
     },
