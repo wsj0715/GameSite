@@ -3,14 +3,12 @@ import { apiClient } from "./apiClient";
 export const getAllGames = async () => {
     return await apiClient({
         method: "get",
-        url: `/`,
     });
 };
 
 export const getSearchGames = async (keyword) => {
     return await apiClient({
         method: "get",
-        url: `/`,
         params: {
             name: keyword,
         },
