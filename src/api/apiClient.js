@@ -5,7 +5,7 @@ export const S3_URL = "https://gameproject-jpg-video.s3.ap-northeast-2.amazonaws
 //netlify에서 배포한 상태일 경우(HTTPS) 백엔드(HTTP)에 요청하기 위해서는 CDN서버로 프록시 주어 리다이렉트 한 후 요청을 해야한다.
 //때문에 api를 url에 붙여 _redirects 파일에서 설정한대로 리아다이렉트 되도록 한다.
 const host = window.location.hostname === "localhost" ? BACKEND_URL : "api";
-
+console.log(host);
 export const apiClient = axios.create({
     baseURL: host,
 });
